@@ -1,0 +1,12 @@
+# The fmt preload set (engine-v1 rebuild) — single source.
+# Entries: "pkg:<name>" -> \RequirePackage{<name>}  (classless, NO options)
+#          "lib:<name>" -> \usetikzlibrary{<name>}  (idempotent re-loads)
+# Option-sensitive PACKAGES are excluded on purpose:
+# preloading them turns user-side \usepackage[opts]{...} into a hard
+# Option clash error. tikz-cd (the original corpus failure) is fixed by
+# the FONT whitelist, not by preload; it loads at runtime (~100 ms with
+# pgf already warm).
+pkg:tikz
+lib:positioning
+lib:shapes.geometric
+lib:calc

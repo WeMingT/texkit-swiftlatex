@@ -1,0 +1,25 @@
+# Tier-0 static guard: script syntax, privacy shapes, language policy.
+# Zero secrets, zero permissions — nothing to leak and nothing to abuse.
+name: static-guard
+on:
+  push:
+  pull_request:
+permissions: {}
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Shell syntax
+        run: |
+          for f in scripts/*.sh tests/*.sh; do bash -n "$f"; done
+          sh -n scripts/pack-closure.sh
+      - name: Python syntax
+        run: python3 -m py_compile scripts/*.py
+      - name: JS syntax
+        run: |
+          for f in scripts/*.mjs scripts/*.js tests/*.mjs; do
+            node --check "$f"
+          done
+      - name: Privacy gate
+        run: tests/privacy-gate.sh

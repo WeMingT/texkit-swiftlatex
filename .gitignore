@@ -1,0 +1,20 @@
+# pinned upstream source trees (re-cloned, never versioned here)
+src/
+
+# generated build outputs — everything the scripts write under build/
+/build/
+
+# gate / smoke scratch outputs under tests/
+tests/corpus-out/
+tests/worker-out*/
+tests/fmt-out/
+tests/new-output.svg
+tests/smoke-result.json
+
+# safety nets for stray binaries
+*.wasm
+*.fmt
+*.tar.gz
+
+# python bytecode
+__pycache__/

@@ -1,0 +1,9 @@
+\documentclass{standalone}
+% circuitikz default options (nosiunitx path) — the plain RLC loop.
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+\draw (0,0) to[R=$R_1$] (2,0) to[C=$C_1$] (4,0);
+\draw (0,0) to[battery1] (0,-2) -- (4,-2) to[L=$L_1$] (4,0);
+\end{circuitikz}
+\end{document}

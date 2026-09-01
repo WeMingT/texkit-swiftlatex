@@ -1,0 +1,12 @@
+\documentclass{standalone}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+\definecolor{myblue}{RGB}{20,60,200}
+\draw[fill=myblue] (0,0) circle (0.5);
+\draw[fill=OrangeRed] (1.5,0) circle (0.5);
+\draw[fill=teal!50] (3,0) circle (0.5);
+\node[text=Purple] at (1.5,-1) {named color text};
+\end{tikzpicture}
+\end{document}

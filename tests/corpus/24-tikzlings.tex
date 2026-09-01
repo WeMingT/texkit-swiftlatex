@@ -1,0 +1,13 @@
+\documentclass{standalone}
+% tikzlings v2.5: the core tikzlings.sty loops \RequirePackage{tikzlings-#1}
+% over ALL animal packages — a macro-concatenated name that static BFS
+% cannot see (covered by the SUPPLEMENT exception class).
+% Only the flagship penguin is supplemented into the closure, so the figure
+% loads the animal package directly (it requires tikz + tikzlings-addons,
+% both in the closure). \tikzling (random animal) is deliberately not used.
+\usepackage{tikzlings-penguins}
+\begin{document}
+\begin{tikzpicture}
+\penguin
+\end{tikzpicture}
+\end{document}

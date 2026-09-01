@@ -1,0 +1,11 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\begin{document}
+\begin{tikzpicture}
+\node[ellipse, draw] (e) at (0,0) {ellipse};
+\node[diamond, draw] (d) at (3,0) {diamond};
+\node[regular polygon, regular polygon sides=6, draw] (h) at (6,0) {hex};
+\node[star, star points=5, draw] (s) at (9,0) {star};
+\end{tikzpicture}
+\end{document}

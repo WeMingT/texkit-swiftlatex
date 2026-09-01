@@ -1,0 +1,24 @@
+\documentclass{standalone}
+% Five Euler-family font packages with real glyph usage — the probe is only
+% responsible for files actually requested, so every family must see a
+% glyph: rsfs (\mathscr), eus (\mathcal via eucal's default [mathcal],
+% plus \EuScript), euf (\mathfrak), eur (math letters), euex (\int, \sum).
+% Load order: eufrak before euler (euler re-points \mathfrak at the same
+% U/euf fonts via DeclareSymbolFontAlphabet, which tolerates redefinition);
+% mathrsfs last so its \mathscr (rsfs) survives euler's EulerScript \mathscr.
+% eucal and euscript are the same generator with different defaults; both
+% \newcommand \CMcal, which the kernel forbids twice — relaxing the guard
+% between the two loads lets the duplicate (same U/eus) declaration in.
+\usepackage{eufrak}
+\usepackage{euler}
+\usepackage{eucal}
+\let\CMcal\relax
+\usepackage{euscript}
+\usepackage{mathrsfs}
+\begin{document}
+$\mathscr{L}(\mathcal{E})$ \quad
+$\EuScript{P}$ \quad
+$\mathfrak{sl}_2$ \quad
+$\int_0^1 x\,dx = \frac{1}{2}$ \quad
+$x_{\mathscr{L}} + \sum_{k} a_k$
+\end{document}

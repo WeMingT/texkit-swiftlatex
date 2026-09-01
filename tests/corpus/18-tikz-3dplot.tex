@@ -1,0 +1,15 @@
+\documentclass{standalone}
+% tikz-3dplot: 3D coordinate system plus a vector in the rotated frame.
+% (tikz-3dplot.sty only RequirePackages pgf; it calls \usetikzlibrary itself,
+%  so tikz must be loaded first.)
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\begin{document}
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[tdplot_main_coords, scale=2]
+\draw[->] (0,0,0) -- (1,0,0) node[right]{$x$};
+\draw[->] (0,0,0) -- (0,1,0) node[below left]{$y$};
+\draw[->] (0,0,0) -- (0,0,1) node[above]{$z$};
+\draw[thick, blue, ->] (0,0,0) -- (0.5,0.5,0.7);
+\end{tikzpicture}
+\end{document}

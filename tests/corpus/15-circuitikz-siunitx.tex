@@ -1,0 +1,11 @@
+\documentclass{standalone}
+% circuitikz siunitx option — the gated chain: the option forces
+% \RequirePackage{siunitx} inside \ifpgf@circ@siunitx, so siunitx and its
+% dependency chain must appear in the request set.
+\usepackage[siunitx]{circuitikz}
+\begin{document}
+\begin{circuitikz}
+\draw (0,0) to[R=\SI{1}{k\ohm}] (2,0) to[C=\SI{10}{\nano\farad}] (4,0);
+\draw (0,-1.5) to[V=$\SI{5}{\volt}$] (2,-1.5);
+\end{circuitikz}
+\end{document}

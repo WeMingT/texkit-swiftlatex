@@ -1,0 +1,13 @@
+{
+  "emsdk": "6.0.8",
+  "wasmOpt": "wasm-opt version 132 (version_132-16-g89a81ef9b)",
+  "texlive": "2025",
+  "swiftlatexCommit": "87dfb950eb9c8e9dcd4ee2a3ac97fbbbacfc618a",
+  "popplerCommit": "481ee336d15bdf6b2b6084dddcd1617b032d2cd5",
+  "cairoCommit": "c3b672634f0635af1ad0ffa8c15b34fc7c1035cf",
+  "freetypeCommit": "de8b92dd7ec634e9e2b25ef534c54a3537555c11",
+  "pixmanCommit": "37216a32839f59e8dcaa4c3951b3fcfc3f07852c",
+  "fontconfigVersion": "2.15.0",
+  "fontconfigTarballSha256": "f5f359d6332861bd497570848fcb42520964a9e83d5e3abe397b6b6db9bcaaf4",
+  "pangoCairoWasmCommit": "6c4777c58264d1e9b6ea56de493eba1a33cce9ef"
+}

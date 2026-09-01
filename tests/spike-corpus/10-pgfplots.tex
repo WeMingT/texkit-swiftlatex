@@ -1,0 +1,11 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, xlabel=$x$, ylabel=$y$]
+\addplot[domain=-3:3, samples=50] {sin(deg(x))};
+\addplot[domain=0:4, samples=30] {exp(-x/2)};
+\end{axis}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,10 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\begin{document}
+\begin{tikzpicture}
+\draw[decorate, decoration={snake, segment length=4mm}] (0,0) -- (3,0);
+\draw[decorate, decoration={coil, aspect=0}] (0,-1) -- (3,-1);
+\draw[decorate, decoration={zigzag}] (0,-2) -- (3,-2);
+\end{tikzpicture}
+\end{document}

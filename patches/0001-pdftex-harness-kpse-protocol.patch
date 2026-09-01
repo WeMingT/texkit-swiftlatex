@@ -1,0 +1,624 @@
+diff --git a/pdftex.wasm/kpseemu.c b/pdftex.wasm/kpseemu.c
+index 5513474..44e4ef5 100644
+--- a/pdftex.wasm/kpseemu.c
++++ b/pdftex.wasm/kpseemu.c
+@@ -189,11 +189,15 @@ int xfclose(FILE *stream, const_string filename) {
+   return 0;
+ }
+ 
+-extern char* kpse_find_file_js(const char* name, kpse_file_format_type format,
+-                     boolean must_exist);
++extern char* kpse_find_file_js_async(const char* name,
++                                     kpse_file_format_type format,
++                                     boolean must_exist);
++
++
++extern char* kpse_find_pk_js_async(const char* passed_fontname,
++                                   unsigned int dpi);
+ 
+ 
+-extern char* kpse_find_pk_js(const char* passed_fontname,  unsigned int dpi);
+ 
+ 
+ static void fix_extension(char *local_name, int format) {
+@@ -371,7 +375,7 @@ char* kpse_find_file(const char* name, kpse_file_format_type format,
+   free(local_name);
+ 
+   // Head to network search
+-  return kpse_find_file_js(name, format, must_exist);
++  return kpse_find_file_js_async(name, format, must_exist);
+ 
+ }
+ 
+@@ -400,5 +404,5 @@ char* kpse_find_pk(const char* fontname,  unsigned int dpi) {
+   free(local_name);
+   
+   // Head to network search
+-  return kpse_find_pk_js(fontname, dpi);
++  return kpse_find_pk_js_async(fontname, dpi);
+ }
+\ No newline at end of file
+diff --git a/pdftex.wasm/library.js b/pdftex.wasm/library.js
+index 19e5930..54c2c7c 100644
+--- a/pdftex.wasm/library.js
++++ b/pdftex.wasm/library.js
+@@ -1,9 +1,17 @@
++// kpse bridge: the C side calls the *_async imports. The __async:'auto'
++// decorator makes emcc wrap each import in Asyncify.handleAsync (suspending
++// the engine) and add it to binaryen's asyncify import list; the pre-js
++// implementations then await the host's file reply
++// ({cmd:"sendCTANFiles", id, result: Map, error}) before returning.
+ mergeInto(LibraryManager.library, {
+-  kpse_find_file_js: function(nameptr, format, mustexist) {
+-    return kpse_find_file_impl(nameptr, format, mustexist);
++  kpse_find_file_js_async__sig: 'iiii',
++  kpse_find_file_js_async__async: 'auto',
++  kpse_find_file_js_async: function(nameptr, format, mustexist) {
++    return Module['kpse_find_file_impl'](nameptr, format, mustexist);
+   },
+-  kpse_find_pk_js: function(nameptr, dpi) {
+-    return kpse_find_pk_impl(nameptr, dpi);
++  kpse_find_pk_js_async__sig: 'iii',
++  kpse_find_pk_js_async__async: 'auto',
++  kpse_find_pk_js_async: function(nameptr, dpi) {
++    return Module['kpse_find_pk_impl'](nameptr, dpi);
+   }
+ });
+-
+diff --git a/pdftex.wasm/pre.js b/pdftex.wasm/pre.js
+index 4e4c1bf..a023955 100644
+--- a/pdftex.wasm/pre.js
++++ b/pdftex.wasm/pre.js
+@@ -1,3 +1,13 @@
++// SwiftLaTeX pdfTeX worker pre-js — TeXKit patch (upstream 87dfb95 + patches/0001).
++//
++// Patched vs upstream: file supply no longer uses a synchronous XHR against
++// texlive_endpoint. The engine now asks the host over postMessage with
++//   {cmd: "downloadFromCTAN", filename, id}
++// and the host answers with
++//   {cmd: "sendCTANFiles", id, result: Map<filename, Uint8Array>, error}
++// which is the TeXKit harness protocol (matches the vendored baseline worker).
++// Compilation entry points run under Asyncify (ccall async), because kpse
++// lookups suspend the engine while the host resolves files.
+ const TEXCACHEROOT = "/tex";
+ const WORKROOT = "/work";
+ var Module = {};
+@@ -22,14 +32,13 @@ Module['preRun'] = function() {
+ function _allocate(content) {
+     let res = _malloc(content.length);
+     HEAPU8.set(new Uint8Array(content), res);
+-    return res; 
++    return res;
+ }
+ 
+ function dumpHeapMemory() {
+     var src = wasmMemory.buffer;
+     var dst = new Uint8Array(src.byteLength);
+     dst.set(new Uint8Array(src));
+-    // console.log("Dumping " + src.byteLength);
+     return dst;
+ }
+ 
+@@ -51,16 +60,14 @@ function closeFSStreams() {
+ }
+ 
+ function prepareExecutionContext() {
+-    self.memlog = '';
++    self.memlog = "";
+     restoreHeapMemory();
+     closeFSStreams();
+     FS.chdir(WORKROOT);
+ }
+ 
+ Module['postRun'] = function() {
+-    self.postMessage({
+-        'result': 'ok',
+-    });
++    self.postMessage({ 'result': 'ok' });
+     self.initmem = dumpHeapMemory();
+ };
+ 
+@@ -89,20 +96,11 @@ function cleanDir(dir) {
+             }
+         }
+     }
+-
+-    if (dir !== WORKROOT) {
+-        try {
+-            FS.rmdir(dir);
+-        } catch (err) {
+-            console.error("Not able to top level " + dir);
+-        }
+-    }
+ }
+ 
+ 
+-
+ Module['onAbort'] = function() {
+-    self.memlog += 'Engine crashed';
++    console.error("Engine crashed");
+     self.postMessage({
+         'result': 'failed',
+         'status': -254,
+@@ -112,21 +110,20 @@ Module['onAbort'] = function() {
+     return;
+ };
+ 
+-function compileLaTeXRoutine() {
++async function compileLaTeXRoutine() {
+     prepareExecutionContext();
+     const setMainFunction = cwrap('setMainEntry', 'number', ['string']);
+     setMainFunction(self.mainfile);
+-    let status = _compileLaTeX();
++    let status = await ccall('compileLaTeX', 'number', [], [], { async: true });
+     if (status === 0) {
+         let pdfArrayBuffer = null;
+-        _compileBibtex();
+         try {
+             let pdfurl = WORKROOT + "/" + self.mainfile.substr(0, self.mainfile.length - 4) + ".pdf";
+             pdfArrayBuffer = FS.readFile(pdfurl, {
+                 encoding: 'binary'
+             });
+         } catch (err) {
+-            console.error("Fetch content failed.");
++            console.error("Fetch content failed. compilelatex");
+             status = -253;
+             self.postMessage({
+                 'result': 'failed',
+@@ -154,9 +151,9 @@ function compileLaTeXRoutine() {
+     }
+ }
+ 
+-function compileFormatRoutine() {
++async function compileFormatRoutine() {
+     prepareExecutionContext();
+-    let status = _compileFormat();
++    let status = await ccall('compileFormat', 'number', [], [], { async: true });
+     if (status === 0) {
+         let pdfArrayBuffer = null;
+         try {
+@@ -165,7 +162,7 @@ function compileFormatRoutine() {
+                 encoding: 'binary'
+             });
+         } catch (err) {
+-            console.error("Fetch content failed.");
++            console.error("Fetch content failed. compileformat");
+             status = -253;
+             self.postMessage({
+                 'result': 'failed',
+@@ -195,7 +192,6 @@ function compileFormatRoutine() {
+ 
+ function mkdirRoutine(dirname) {
+     try {
+-        //console.log("removing " + item);
+         FS.mkdir(WORKROOT + "/" + dirname);
+         self.postMessage({
+             'result': 'ok',
+@@ -226,6 +222,59 @@ function writeFileRoutine(filename, content) {
+     }
+ }
+ 
++function writeTexFileRoutine(filename, content) {
++    try {
++        FS.writeFile(TEXCACHEROOT + "/" + filename, content);
++        self.postMessage({
++            'result': 'ok',
++            'cmd': 'writetexfile'
++        });
++    } catch (err) {
++        console.error("Unable to write tex file");
++        self.postMessage({
++            'result': 'failed',
++            'cmd': 'writetexfile'
++        });
++    }
++}
++
++function transferTexFileToHost(filename) {
++    try {
++        let content = FS.readFile(TEXCACHEROOT + "/" + filename, { encoding: 'binary' });
++        self.postMessage({
++            'result': 'ok',
++            'cmd': 'fetchfile',
++            'filename': filename,
++            'content': content
++        }, [content.buffer]);
++    } catch (err) {
++        console.error("Unable to fetch tex file");
++        self.postMessage({
++            'result': 'failed',
++            'cmd': 'fetchfile'
++        });
++    }
++}
++
++function transferCacheDataToHost() {
++    try {
++        self.postMessage({
++            'result': 'ok',
++            'cmd': 'fetchcache',
++            'texlive404_cache': texlive404_cache,
++            'texlive200_cache': texlive200_cache,
++            'pk404_cache': pk404_cache,
++            'pk200_cache': pk200_cache
++        });
++    } catch (err) {
++        console.error("Unable to fetch cache");
++        self.postMessage({
++            'result': 'failed',
++            'cmd': 'fetchcache'
++        });
++    }
++}
++
+ function setTexliveEndpoint(url) {
+     if(url) {
+         if (!url.endsWith("/")) {
+@@ -235,13 +284,24 @@ function setTexliveEndpoint(url) {
+     }
+ }
+ 
+-self['onmessage'] = function(ev) {
++let msgId = 0;
++const pending = new Map();
++
++function requestMainToDownloadCTANFiles(filename) {
++    return new Promise((resolve, reject) => {
++        let id = msgId++;
++        pending.set(id, { resolve, reject });
++        self.postMessage({ 'cmd': 'downloadFromCTAN', 'filename': filename, 'id': id });
++    });
++}
++
++self['onmessage'] = async function(ev) {
+     let data = ev['data'];
+     let cmd = data['cmd'];
+     if (cmd === 'compilelatex') {
+-        compileLaTeXRoutine();
++        await compileLaTeXRoutine();
+     } else if (cmd === 'compileformat') {
+-        compileFormatRoutine();
++        await compileFormatRoutine();
+     } else if (cmd === "settexliveurl") {
+         setTexliveEndpoint(data['url']);
+     } else if (cmd === "mkdir") {
+@@ -255,6 +315,24 @@ self['onmessage'] = function(ev) {
+         self.close();
+     } else if (cmd === "flushcache") {
+         cleanDir(WORKROOT);
++    } else if (cmd === "fetchfile") {
++        transferTexFileToHost(data['filename']);
++    } else if (cmd === "fetchcache") {
++        transferCacheDataToHost();
++    } else if (cmd === "writetexfile") {
++        writeTexFileRoutine(data['url'], data['src']);
++    } else if (cmd === "writecache") {
++        texlive404_cache = data['texlive404_cache'];
++        texlive200_cache = data['texlive200_cache'];
++        pk404_cache = data['pk404_cache'];
++        pk200_cache = data['pk200_cache'];
++    } else if (cmd === "sendCTANFiles") {
++        const id = data['id'];
++        const error = data['error'];
++        const result = data['result'];
++        const { resolve, reject } = pending.get(id);
++        pending.delete(id);
++        error ? reject(error) : resolve(result);
+     } else {
+         console.error("Unknown command " + cmd);
+     }
+@@ -263,103 +341,249 @@ self['onmessage'] = function(ev) {
+ let texlive404_cache = {};
+ let texlive200_cache = {};
+ 
+-function kpse_find_file_impl(nameptr, format, _mustexist) {
++async function kpse_find_file_impl(nameptr, format, _mustexist) {
+ 
+-    const reqname = UTF8ToString(nameptr);
++    let reqname = UTF8ToString(nameptr);
+ 
+     if (reqname.includes("/")) {
+         return 0;
+     }
+ 
+-    const cacheKey = format + "/" + reqname ;
+-
+-    if (cacheKey in texlive404_cache) {
+-        return 0;
++    if (!reqname.includes(".")) {
++        reqname = reqname + formatToSuffix(format);
+     }
+ 
++    const cacheKey = format + "/" + reqname;
++
+     if (cacheKey in texlive200_cache) {
+-        const savepath = texlive200_cache[cacheKey];
+-        return _allocate(intArrayFromString(savepath));
++        const cachedpath = texlive200_cache[cacheKey];
++        return _allocate(intArrayFromString(cachedpath));
+     }
+ 
+-    
+-    const remote_url = self.texlive_endpoint + 'pdftex/' + cacheKey;
+-    let xhr = new XMLHttpRequest();
+-    xhr.open("GET", remote_url, false);
+-    xhr.timeout = 150000;
+-    xhr.responseType = "arraybuffer";
+-    console.log("Start downloading texlive file " + remote_url);
+     try {
+-        xhr.send();
++        let result = await requestMainToDownloadCTANFiles(reqname);
++        if (result === undefined) {
++            return 0;
++        }
++        if (!result.has(reqname)) {
++            return 0;
++        }
++        for (const [filename, content] of result.entries()) {
++            const savepath = TEXCACHEROOT + "/" + filename;
++            FS.writeFile(savepath, new Uint8Array(content));
++            texlive200_cache[cacheKey] = savepath;
++            console.log(`successfully fetched ${filename}`);
++        }
++        const savepath = TEXCACHEROOT + "/" + reqname;
++        return _allocate(intArrayFromString(savepath));
+     } catch (err) {
+-        console.log("TexLive Download Failed " + remote_url);
++        console.error(err);
+         return 0;
+     }
+-
+-    if (xhr.status === 200) {
+-        let arraybuffer = xhr.response;
+-        const fileid = xhr.getResponseHeader('fileid');
+-        const savepath = TEXCACHEROOT + "/" + fileid;
+-        FS.writeFile(savepath, new Uint8Array(arraybuffer));
+-        texlive200_cache[cacheKey] = savepath;
+-        return _allocate(intArrayFromString(savepath));
+-
+-    } else if (xhr.status === 301) {
+-        console.log("TexLive File not exists " + remote_url);
+-        texlive404_cache[cacheKey] = 1;
+-        return 0;
+-    } 
+-    return 0;
+ }
+ 
+ 
+ let pk404_cache = {};
+ let pk200_cache = {};
+ 
+-function kpse_find_pk_impl(nameptr, dpi) {
++async function kpse_find_pk_impl(nameptr, dpi) {
+     const reqname = UTF8ToString(nameptr);
+ 
+     if (reqname.includes("/")) {
+         return 0;
+     }
+ 
+-    const cacheKey = dpi + "/" + reqname ;
+-
+-    if (cacheKey in pk404_cache) {
+-        return 0;
+-    }
++    const cacheKey = dpi + "/" + reqname;
+ 
+     if (cacheKey in pk200_cache) {
+-        const savepath = pk200_cache[cacheKey];
+-        return _allocate(intArrayFromString(savepath));
++        const cachedpath = pk200_cache[cacheKey];
++        return _allocate(intArrayFromString(cachedpath));
+     }
+ 
+-    const remote_url = self.texlive_endpoint + 'pdftex/pk/' + cacheKey;
+-    let xhr = new XMLHttpRequest();
+-    xhr.open("GET", remote_url, false);
+-    xhr.timeout = 150000;
+-    xhr.responseType = "arraybuffer";
+-    console.log("Start downloading texlive file " + remote_url);
+     try {
+-        xhr.send();
++        let result = await requestMainToDownloadCTANFiles(reqname);
++        if (result === undefined) {
++            return 0;
++        }
++        if (!result.has(reqname)) {
++            return 0;
++        }
++        for (const [filename, content] of result.entries()) {
++            const savepath = TEXCACHEROOT + "/" + filename;
++            FS.writeFile(savepath, new Uint8Array(content));
++            pk200_cache[cacheKey] = savepath;
++            console.log(`successfully fetched ${filename}`);
++        }
++        const savepath = TEXCACHEROOT + "/" + reqname;
++        return _allocate(intArrayFromString(savepath));
+     } catch (err) {
+-        console.log("TexLive Download Failed " + remote_url);
++        console.error(err);
+         return 0;
+     }
++}
+ 
+-    if (xhr.status === 200) {
+-        let arraybuffer = xhr.response;
+-        const pkid = xhr.getResponseHeader('pkid');
+-        const savepath = TEXCACHEROOT + "/" + pkid;
+-        FS.writeFile(savepath, new Uint8Array(arraybuffer));
+-        pk200_cache[cacheKey] = savepath;
+-        return _allocate(intArrayFromString(savepath));
+-
+-    } else if (xhr.status === 301) {
+-        console.log("TexLive File not exists " + remote_url);
+-        pk404_cache[cacheKey] = 1;
+-        return 0;
+-    } 
+-    return 0;
+-
+-}
+\ No newline at end of file
++Module['kpse_find_file_impl'] = kpse_find_file_impl;
++Module['kpse_find_pk_impl'] = kpse_find_pk_impl;
++
++// Mirror of kpse_file_format_type from texmfmp.h — numeric values MUST stay
++// in sync with the C enum.
++const kpse_file_format_type = Object.freeze({
++    kpse_gf_format: 0,
++    kpse_pk_format: 1,
++    kpse_any_glyph_format: 2,
++    kpse_tfm_format: 3,
++    kpse_afm_format: 4,
++    kpse_base_format: 5,
++    kpse_bib_format: 6,
++    kpse_bst_format: 7,
++    kpse_cnf_format: 8,
++    kpse_db_format: 9,
++    kpse_fmt_format: 10,
++    kpse_fontmap_format: 11,
++    kpse_mem_format: 12,
++    kpse_mf_format: 13,
++    kpse_mfpool_format: 14,
++    kpse_mft_format: 15,
++    kpse_mp_format: 16,
++    kpse_mppool_format: 17,
++    kpse_mpsupport_format: 18,
++    kpse_ocp_format: 19,
++    kpse_ofm_format: 20,
++    kpse_opl_format: 21,
++    kpse_otp_format: 22,
++    kpse_ovf_format: 23,
++    kpse_ovp_format: 24,
++    kpse_pict_format: 25,
++    kpse_tex_format: 26,
++    kpse_texdoc_format: 27,
++    kpse_texpool_format: 28,
++    kpse_texsource_format: 29,
++    kpse_tex_ps_header_format: 30,
++    kpse_troff_font_format: 31,
++    kpse_type1_format: 32,
++    kpse_vf_format: 33,
++    kpse_dvips_config_format: 34,
++    kpse_ist_format: 35,
++    kpse_truetype_format: 36,
++    kpse_type42_format: 37,
++    kpse_web2c_format: 38,
++    kpse_program_text_format: 39,
++    kpse_program_binary_format: 40,
++    kpse_miscfonts_format: 41,
++    kpse_web_format: 42,
++    kpse_cweb_format: 43,
++    kpse_enc_format: 44,
++    kpse_cmap_format: 45,
++    kpse_sfd_format: 46,
++    kpse_opentype_format: 47,
++    kpse_pdftex_config_format: 48,
++    kpse_lig_format: 49,
++    kpse_texmfscripts_format: 50,
++    kpse_lua_format: 51,
++    kpse_fea_format: 52,
++    kpse_cid_format: 53,
++    kpse_mlbib_format: 54,
++    kpse_mlbst_format: 55,
++    kpse_clua_format: 56,
++    kpse_ris_format: 57,
++    kpse_bltxml_format: 58,
++    kpse_last_format: 59
++});
++
++// Mirrors fix_extension() in kpseemu.c — the extension appended to
++// extension-less names before asking the host.
++function formatToSuffix(format) {
++    switch (format) {
++    case kpse_file_format_type.kpse_gf_format:
++        return ".gf";
++    case kpse_file_format_type.kpse_pk_format:
++        return ".pk";
++    case kpse_file_format_type.kpse_tfm_format:
++        return ".tfm";
++    case kpse_file_format_type.kpse_afm_format:
++        return ".afm";
++    case kpse_file_format_type.kpse_base_format:
++        return ".base";
++    case kpse_file_format_type.kpse_bib_format:
++        return ".bib";
++    case kpse_file_format_type.kpse_bst_format:
++        return ".bst";
++    case kpse_file_format_type.kpse_fontmap_format:
++        return ".map";
++    case kpse_file_format_type.kpse_mem_format:
++        return ".mem";
++    case kpse_file_format_type.kpse_mf_format:
++        return ".mf";
++    case kpse_file_format_type.kpse_mft_format:
++        return ".mft";
++    case kpse_file_format_type.kpse_mfpool_format:
++        return ".pool";
++    case kpse_file_format_type.kpse_mp_format:
++        return ".mp";
++    case kpse_file_format_type.kpse_mppool_format:
++        return ".pool";
++    case kpse_file_format_type.kpse_ocp_format:
++        return ".ocp";
++    case kpse_file_format_type.kpse_ofm_format:
++        return ".ofm";
++    case kpse_file_format_type.kpse_opl_format:
++        return ".opl";
++    case kpse_file_format_type.kpse_otp_format:
++        return ".otp";
++    case kpse_file_format_type.kpse_ovf_format:
++        return ".ovf";
++    case kpse_file_format_type.kpse_ovp_format:
++        return ".ovp";
++    case kpse_file_format_type.kpse_pict_format:
++        return ".esp";
++    case kpse_file_format_type.kpse_tex_format:
++        return ".tex";
++    case kpse_file_format_type.kpse_texpool_format:
++        return ".pool";
++    case kpse_file_format_type.kpse_texsource_format:
++        return ".dtx";
++    case kpse_file_format_type.kpse_type1_format:
++        return ".pfa";
++    case kpse_file_format_type.kpse_vf_format:
++        return ".vf";
++    case kpse_file_format_type.kpse_ist_format:
++        return ".ist";
++    case kpse_file_format_type.kpse_truetype_format:
++        return ".ttf";
++    case kpse_file_format_type.kpse_type42_format:
++        return ".t42";
++    case kpse_file_format_type.kpse_miscfonts_format:
++        return "";
++    case kpse_file_format_type.kpse_enc_format:
++        return ".enc";
++    case kpse_file_format_type.kpse_cmap_format:
++        return "cmap";
++    case kpse_file_format_type.kpse_sfd_format:
++        return ".sfd";
++    case kpse_file_format_type.kpse_opentype_format:
++        return ".otf";
++    case kpse_file_format_type.kpse_pdftex_config_format:
++        return ".cfg";
++    case kpse_file_format_type.kpse_lig_format:
++        return ".lig";
++    case kpse_file_format_type.kpse_texmfscripts_format:
++        return "";
++    case kpse_file_format_type.kpse_fea_format:
++        return ".fea";
++    case kpse_file_format_type.kpse_cid_format:
++        return ".cid";
++    case kpse_file_format_type.kpse_mlbib_format:
++        return ".mlbib";
++    case kpse_file_format_type.kpse_mlbst_format:
++        return ".mlbst";
++    case kpse_file_format_type.kpse_ris_format:
++        return ".ris";
++    case kpse_file_format_type.kpse_bltxml_format:
++        return ".bltxml";
++    case kpse_file_format_type.kpse_fmt_format:
++        return ".fmt";
++    default:
++        console.log(`Unknown Kpse Format ${format}`);
++        return "";
++    }
++}

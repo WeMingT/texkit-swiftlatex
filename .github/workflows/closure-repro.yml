@@ -1,0 +1,87 @@
+# Tier-1 closure-line reproduction: derive + materialize + pack inside a
+# digest-pinned frozen TeX Live 2025 image, then byte-compare the tarball
+# against the recorded baseline for that image. A foreign machine
+# rebuilding the closure byte-identically is the structural proof that no
+# build-machine identity is embedded — same-machine rebuilds cannot prove
+# this, because both runs embed the same identity (the leak class caught
+# twice on 2026-09-01; see docs/determinism.md).
+#
+# Two baselines exist (docs/determinism.md, "CI closure reproduction"):
+#   - the RELEASE asset (engine-v1) was built on the author's 2025-11
+#     TL2025 tree, coherent with the fmt asset built on the same tree;
+#   - this gate pins the FROZEN tlnet-final image. The two differ in
+#     exactly one member: pdftex.map, an updmap-generated per-install
+#     state file (the upstream package and font-mirror files are byte-identical
+#     across both). The delta is reported informationally after the
+#     gate. A future engine release may re-baseline fmt+closure together
+#     on the frozen image.
+#
+# The materialize step also runs the in-repo machine-identity leak gate
+# with the RUNNER's identity as needles — a foreign-machine defense line.
+name: closure-repro
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions: {}
+env:
+  IMAGE: texlive/texlive@sha256:f25ee2dcd00f58198f918064f4a1c8562410b33e84155bd55b02b419d73d9391
+  EXPECTED_SHA256: 4d9242b06fbe1c2eeceafa8766e17e9a599b216fbd2d21d5cddd3388c4faec95
+  EXPECTED_BYTES: "6807723"
+  RELEASED_TARBALL: https://github.com/WeMingT/texkit-swiftlatex/releases/download/engine-v1/texfiles.tar.gz
+jobs:
+  closure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Baseline identity of the pinned image
+        run: docker run --rm "$IMAGE" tlmgr --version | head -2
+      - name: Derive, materialize, pack (frozen TL2025)
+        run: |
+          docker run --rm -v "$PWD:/work" -w /work "$IMAGE" bash -ec '
+            apt-get update -qq && apt-get install -yqq --no-install-recommends python3 >/dev/null
+            export TEXMF_DIST=/usr/local/texlive/2025/texmf-dist
+            export KPSEWHICH=/usr/local/texlive/2025/bin/x86_64-linux/kpsewhich
+            git config --global --add safe.directory /work
+            python3 --version
+            python3 scripts/derive-closure.py
+            git diff --exit-code -- closure/closure-list.txt
+            echo "closure-list: byte-identical to the committed snapshot"
+            python3 scripts/materialize-closure.py
+            sh scripts/pack-closure.sh'
+      - name: Byte-compare against the frozen-image baseline
+        id: compare
+        run: |
+          got=$(sha256sum build/texfiles.tar.gz | cut -d' ' -f1)
+          bytes=$(wc -c < build/texfiles.tar.gz)
+          echo "built:    sha256=$got bytes=$bytes"
+          echo "expected: sha256=$EXPECTED_SHA256 bytes=$EXPECTED_BYTES (digest-pinned frozen TL2025)"
+          if [ "$got" = "$EXPECTED_SHA256" ] && [ "$bytes" = "$EXPECTED_BYTES" ]; then
+            echo "MATCH: foreign machine + frozen TL2025 rebuild the baseline tarball byte-identically"
+          else
+            echo "MISMATCH — any change here is a closure-line or upstream-freeze regression"
+            exit 1
+          fi
+      - name: Delta vs the released tarball (informational)
+        run: |
+          curl -sfL -o /tmp/released.tar.gz "$RELEASED_TARBALL"
+          python3 - build/texfiles.tar.gz /tmp/released.tar.gz <<'EOF'
+          import hashlib, sys, tarfile
+
+          def members(path):
+              with tarfile.open(path) as t:
+                  return {m.name: hashlib.sha256(t.extractfile(m).read()).hexdigest()
+                          for m in t.getmembers() if m.isfile()}
+
+          released = members(sys.argv[2])
+          built = members(sys.argv[1])
+          only_released = sorted(set(released) - set(built))
+          only_built = sorted(set(built) - set(released))
+          diff = sorted(n for n in set(released) & set(built) if released[n] != built[n])
+          print(f"release-asset delta: released-only {len(only_released)}, "
+                f"built-only {len(only_built)}, content-differing {len(diff)}")
+          for name in only_released[:10] + only_built[:10] + diff[:50]:
+              print("  ", name)
+          print("(one differing member, pdftex.map, is the known baseline delta — "
+                "docs/determinism.md, CI closure reproduction)")
+          EOF

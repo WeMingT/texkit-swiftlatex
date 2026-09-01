@@ -1,0 +1,11 @@
+\documentclass{standalone}
+% Bold tabular row: \bfseries inside a tabular drives the NFSS
+% medium-bold shape (cmbx10.tfm) through the user-side size-selection
+% path — the request class that fails with "Metric (TFM) file not
+% found" when a closure ships without the cm bold face.
+\begin{document}
+\begin{tabular}{@{}l@{}}
+regular weight \\
+{\bfseries bold text} \\
+\end{tabular}
+\end{document}

@@ -1,0 +1,9 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+\foreach \i in {0,...,4} \foreach \j in {0,...,2}
+  \node[draw, circle] at (\i,\j) {$\i\j$};
+\foreach \x in {0,0.5,...,2} \draw (\x,-1) -- (\x,-0.7);
+\end{tikzpicture}
+\end{document}

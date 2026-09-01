@@ -1,0 +1,94 @@
+# Font directories mirrored WHOLESALE into the closure, bypassing corpus
+# trimming — font size selection is driven unpredictably by user documents
+# (sub/superscripts -> script sizes; a missing .pfb aborts the engine while
+# a missing .tfm is only a recoverable TeX error, so PFB and TFM trees are
+# BOTH required). Glyph shape is equally user-driven: a .vf-backed .tfm
+# whose .vf is missing aborts at shipout (vf names carry no map entry), so
+# the vf tree is staged alongside.
+# One TL2025 texmf-dist directory per line; every *.pfb / *.tfm / *.vf
+# directly inside it is staged (flat basenames, closure-list spelling).
+#
+# cm family (kpsewhich-verified 2026-09-03): .pfb in type1/public/amsfonts/cm
+# (75 — the dir's 150 entries are 75 pfb + 75 .pfm pairs; .pfm is
+# Windows-only metrics, not staged); .tfm split across tfm/public/cm (75)
+# and tfm/public/amsfonts/cmextra (15) — tfm/public/amsfonts/cm does NOT
+# exist.
+#
+# Common math alphabets (user-directed extension, same date): rsfs =
+# \mathscr via mathrsfs (3 tfm + 3 pfb); amsfonts/symbols = msam/msbm,
+# \mathbb & AMS symbols via amssymb (12 + 12); amsfonts/euler = eufm/eusb/
+# euscript/euex/eurb, \mathfrak & Euler faces via eufrak/euscript
+# (40 tfm + 22 pfb). Their .sty/.fd macro layer is already in the closure
+# (amssymb/amsfonts/amsbsy/eufrak/euscript/mathrsfs.sty + ursfs.fd), and
+# rsfs + amsfonts font families are already in the audited release.
+# bbm is deliberately EXCLUDED: a separate license family needing a new
+# audit, and \mathbb via amssymb/msbm covers the common need.
+fonts/type1/public/amsfonts/cm
+fonts/tfm/public/cm
+fonts/tfm/public/amsfonts/cmextra
+fonts/tfm/public/rsfs
+fonts/type1/public/rsfs
+fonts/tfm/public/amsfonts/symbols
+fonts/type1/public/amsfonts/symbols
+fonts/tfm/public/amsfonts/euler
+fonts/type1/public/amsfonts/euler
+#
+# mathpazo (added 2026-09-03): a supported scenario whose kernel
+# math-symbol face (\times \le \in \sum \sqrt \mathcal — the OMS/OMX zplm
+# slots) ships through VIRTUAL fonts. A corpus-derived closure carries
+# zplmr7y/7v.tfm but not their .vf (vfs are requested only when a glyph
+# truly ships; a letters-only probe never pulls them) — a half-assembled
+# chain that aborts the engine on any real math symbol, and it survives
+# re-derivation untouched (no static edge reaches mathpazo.sty). Glyph
+# shape is as user-document-driven as glyph size, so the whole mathpazo
+# TDS trio is mirrored: 12 tfm + 7 vf + 5 pfb (fplm/fplmbb raw faces +
+# zplm virtuals, bold included). \mathbb under mathpazo still needs
+# ufplmbb.fd (macro layer, not staged here) — known limitation; loading
+# amssymb AFTER mathpazo keeps \mathbb on msbm instead.
+fonts/tfm/public/mathpazo
+fonts/vf/public/mathpazo
+fonts/type1/public/mathpazo
+#
+# Bold optical sizes + Palatino base/vf chains (added 2026-09-03 after a
+# recorder-based hermetic audit — the earlier staged test used
+# TEXFONTS=<stage>: with a trailing colon, silently falling back to the
+# full TL tree, and its "double green" proved nothing about closure
+# coverage):
+# 1) \boldmath at script/subscript sizes loads cmbsy5-9 / cmmib5-9 /
+#    cmcsc8-9 whose .pfb live ONLY in type1/public/amsfonts/cmextra
+#    (15 pfb; its tfm side was already mirrored — the pfb tree was the
+#    gap, mirroring the cm family's own tfm/pfb TDS split).
+# 2) mathpazo's bold-italic MATH letters ship through zplmb7m.vf whose
+#    base is the Palatino TEXT chain: pplbi8r.tfm ->
+#    URWPalladioL-BoldItal <uplbi8a.pfb (pdftex.map) — two more trees:
+#    tfm/adobe/palatino (81 tfm, incl. eur/zppl spillover) and
+#    type1/urw/palatino (4 pfb: r/ri/b/bi 8a faces).
+# 3) Palatino TEXT faces resolve through 7t VFs (pplbi7t.vf, pplrc7t.vf,
+#    pplro7t.vf, ...) that build bold-italic/small-caps/slanted from the
+#    four base pfb — vf/adobe/palatino (65 vf) completes the chain.
+#    Verified hermetic end-to-end: a \textsc/\textsl/\textbf/\textit/
+#    \textbf{\textit{}} probe compiled against the stage with -recorder
+#    and ZERO font files resolved outside it; all five faces embedded
+#    (pdffonts: URWPalladioL-Roma/-Ital/-Bold/-BoldItal + Slant_167).
+# Both matrix documents re-verified the same way: exit=0 and fls
+# outside-stage count = 0.
+fonts/type1/public/amsfonts/cmextra
+fonts/tfm/adobe/palatino
+fonts/type1/urw/palatino
+fonts/vf/adobe/palatino
+# Final-state matrix run (2026-09-03): the 238-row
+# stock matrix (16-dir whitelist, generator guard fixed to map
+# reachability) exposed the remaining base-chain gaps — the
+# adobe/palatino tfm spillover carries OsF/real-SC metrics (pplbij8r/
+# pplbj8r/pplrc8r/pplrij8r) whose mapped PFB live in type1/public/fpl
+# (4), and the zpple* vfs (spillover of vf/adobe/palatino) build math
+# glyphs from the URW Symbol clone: psyr.tfm (tfm/adobe/symbol) ->
+# usyr.pfb (type1/urw/symbol). Same license families as the
+# already-audited fplm/urw trees (GPL+fe). Totals: 19 dirs, 452 files
+# = 239 tfm + 141 pfb + 72 vf; overlap with the closure name list = 99
+# (intentional same-source coverage); union = 972 files. Final-state
+# verification: 239/239 tfm rows + 72/72 vfs requested across the two
+# documents, exit=0, ZERO font AND macro (.fd/.sty/.cls) fallback.
+fonts/type1/public/fpl
+fonts/tfm/adobe/symbol
+fonts/type1/urw/symbol

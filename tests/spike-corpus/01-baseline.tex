@@ -1,0 +1,10 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+\node (a) {A};
+\draw[->] (a) -- ++(1,0);
+\node (b) at (2,0) {B};
+\draw[->, bend left] (a) to node[above] {$x$} (b);
+\end{tikzpicture}
+\end{document}

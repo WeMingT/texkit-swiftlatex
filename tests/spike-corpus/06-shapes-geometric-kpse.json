@@ -1,0 +1,3982 @@
+{
+  "log": [
+    {
+      "tag": "01-baseline",
+      "name": "standalone.cls",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls",
+      "bytes": 29032,
+      "ms": 855
+    },
+    {
+      "tag": "01-baseline",
+      "name": "shellesc.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/tools/shellesc.sty",
+      "bytes": 4121,
+      "ms": 520
+    },
+    {
+      "tag": "01-baseline",
+      "name": "ifluatex.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/iftex/ifluatex.sty",
+      "bytes": 492,
+      "ms": 476
+    },
+    {
+      "tag": "01-baseline",
+      "name": "iftex.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty",
+      "bytes": 7984,
+      "ms": 602
+    },
+    {
+      "tag": "01-baseline",
+      "name": "xkeyval.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/xkeyval/xkeyval.sty",
+      "bytes": 4937,
+      "ms": 473
+    },
+    {
+      "tag": "01-baseline",
+      "name": "xkeyval.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/xkeyval.tex",
+      "bytes": 19231,
+      "ms": 691
+    },
+    {
+      "tag": "01-baseline",
+      "name": "xkvutils.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/xkvutils.tex",
+      "bytes": 7677,
+      "ms": 569
+    },
+    {
+      "tag": "01-baseline",
+      "name": "keyval.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/keyval.tex",
+      "bytes": 2725,
+      "ms": 466
+    },
+    {
+      "tag": "01-baseline",
+      "name": "standalone.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cfg",
+      "bytes": 1015,
+      "ms": 510
+    },
+    {
+      "tag": "01-baseline",
+      "name": "preview.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/preview/preview.sty",
+      "bytes": 13875,
+      "ms": 611
+    },
+    {
+      "tag": "01-baseline",
+      "name": "article.cls",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/base/article.cls",
+      "bytes": 20144,
+      "ms": 610
+    },
+    {
+      "tag": "01-baseline",
+      "name": "size10.clo",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/base/size10.clo",
+      "bytes": 8448,
+      "ms": 560
+    },
+    {
+      "tag": "01-baseline",
+      "name": "tikz.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty",
+      "bytes": 339,
+      "ms": 459
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgf.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty",
+      "bytes": 1090,
+      "ms": 494
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfrcs.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty",
+      "bytes": 325,
+      "ms": 871
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfutil-common.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex",
+      "bytes": 29239,
+      "ms": 569
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfutil-latex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def",
+      "bytes": 6950,
+      "ms": 838
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfrcs.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex",
+      "bytes": 4385,
+      "ms": 625
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgf.revision.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/pgf.revision.tex",
+      "bytes": 114,
+      "ms": 815
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcore.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty",
+      "bytes": 373,
+      "ms": 642
+    },
+    {
+      "tag": "01-baseline",
+      "name": "graphicx.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty",
+      "bytes": 8010,
+      "ms": 483
+    },
+    {
+      "tag": "01-baseline",
+      "name": "keyval.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty",
+      "bytes": 2671,
+      "ms": 858
+    },
+    {
+      "tag": "01-baseline",
+      "name": "graphics.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty",
+      "bytes": 18363,
+      "ms": 574
+    },
+    {
+      "tag": "01-baseline",
+      "name": "trig.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty",
+      "bytes": 4023,
+      "ms": 636
+    },
+    {
+      "tag": "01-baseline",
+      "name": "graphics.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg",
+      "bytes": 1224,
+      "ms": 513
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def",
+      "bytes": 19440,
+      "ms": 646
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfsys.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty",
+      "bytes": 443,
+      "ms": 614
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfsys.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex",
+      "bytes": 61351,
+      "ms": 501
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfkeys.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex",
+      "bytes": 39784,
+      "ms": 620
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfkeyslibraryfiltered.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex",
+      "bytes": 37433,
+      "ms": 685
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgf.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg",
+      "bytes": 926,
+      "ms": 666
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfsys-pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def",
+      "bytes": 12612,
+      "ms": 580
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfsys-common-pdf.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def",
+      "bytes": 5542,
+      "ms": 494
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfsyssoftpath.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex",
+      "bytes": 7778,
+      "ms": 665
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfsysprotocol.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex",
+      "bytes": 1896,
+      "ms": 638
+    },
+    {
+      "tag": "01-baseline",
+      "name": "xcolor.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "bytes": 55384,
+      "ms": 520
+    },
+    {
+      "tag": "01-baseline",
+      "name": "color.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg",
+      "bytes": 1213,
+      "ms": 594
+    },
+    {
+      "tag": "01-baseline",
+      "name": "mathcolor.ltx",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx",
+      "bytes": 2885,
+      "ms": 581
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcore.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex",
+      "bytes": 1016,
+      "ms": 727
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmath.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex",
+      "bytes": 949,
+      "ms": 534
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmathutil.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex",
+      "bytes": 8471,
+      "ms": 475
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmathparser.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex",
+      "bytes": 37466,
+      "ms": 532
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmathfunctions.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex",
+      "bytes": 9649,
+      "ms": 736
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmathfunctions.basic.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex",
+      "bytes": 28178,
+      "ms": 492
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmathfunctions.trigonometric.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex",
+      "bytes": 92405,
+      "ms": 639
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmathfunctions.random.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex",
+      "bytes": 7890,
+      "ms": 503
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmathfunctions.comparison.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex",
+      "bytes": 3865,
+      "ms": 725
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmathfunctions.base.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex",
+      "bytes": 10165,
+      "ms": 589
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmathfunctions.round.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex",
+      "bytes": 3379,
+      "ms": 484
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmathfunctions.misc.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex",
+      "bytes": 11024,
+      "ms": 608
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmathfunctions.integerarithmetics.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex",
+      "bytes": 3177,
+      "ms": 609
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmathcalc.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex",
+      "bytes": 13270,
+      "ms": 834
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmathfloat.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex",
+      "bytes": 104717,
+      "ms": 610
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfint.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex",
+      "bytes": 3063,
+      "ms": 503
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcorepoints.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex",
+      "bytes": 33335,
+      "ms": 742
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcorepathconstruct.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex",
+      "bytes": 44195,
+      "ms": 689
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcorepathusage.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex",
+      "bytes": 21302,
+      "ms": 561
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcorescopes.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex",
+      "bytes": 20821,
+      "ms": 750
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcoregraphicstate.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex",
+      "bytes": 6038,
+      "ms": 807
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcoretransformations.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex",
+      "bytes": 22012,
+      "ms": 873
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcorequick.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex",
+      "bytes": 2965,
+      "ms": 789
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcoreobjects.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex",
+      "bytes": 2544,
+      "ms": 985
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcorepathprocessing.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex",
+      "bytes": 17311,
+      "ms": 580
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcorearrows.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex",
+      "bytes": 43820,
+      "ms": 575
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcoreshade.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex",
+      "bytes": 35249,
+      "ms": 525
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcoreimage.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex",
+      "bytes": 6911,
+      "ms": 835
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcoreexternal.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex",
+      "bytes": 19324,
+      "ms": 536
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcorelayers.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex",
+      "bytes": 4883,
+      "ms": 567
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcoretransparency.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex",
+      "bytes": 8893,
+      "ms": 605
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcorepatterns.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex",
+      "bytes": 9691,
+      "ms": 643
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcorerdf.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex",
+      "bytes": 5196,
+      "ms": 696
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmoduleshapes.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex",
+      "bytes": 44792,
+      "ms": 636
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmoduleplot.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex",
+      "bytes": 16121,
+      "ms": 692
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcomp-version-0-65.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty",
+      "bytes": 21013,
+      "ms": 922
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfcomp-version-1-18.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty",
+      "bytes": 989,
+      "ms": 656
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgffor.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgffor.sty",
+      "bytes": 348,
+      "ms": 1025
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfkeys.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty",
+      "bytes": 274,
+      "ms": 1136
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmath.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/math/pgfmath.sty",
+      "bytes": 306,
+      "ms": 1080
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgffor.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex",
+      "bytes": 24033,
+      "ms": 983
+    },
+    {
+      "tag": "01-baseline",
+      "name": "tikz.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex",
+      "bytes": 186782,
+      "ms": 830
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgflibraryplothandlers.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex",
+      "bytes": 32995,
+      "ms": 763
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pgfmodulematrix.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex",
+      "bytes": 21211,
+      "ms": 792
+    },
+    {
+      "tag": "01-baseline",
+      "name": "tikzlibrarytopaths.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex",
+      "bytes": 11518,
+      "ms": 771
+    },
+    {
+      "tag": "01-baseline",
+      "name": "l3backend-pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def",
+      "bytes": 29785,
+      "ms": 1228
+    },
+    {
+      "tag": "01-baseline",
+      "name": "main.aux",
+      "found": null,
+      "bytes": 0,
+      "ms": 1657
+    },
+    {
+      "tag": "01-baseline",
+      "name": "main.aux",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "01-baseline",
+      "name": "supp-pdf.mkii",
+      "found": "d:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii",
+      "bytes": 71627,
+      "ms": 1099
+    },
+    {
+      "tag": "01-baseline",
+      "name": "epstopdf-base.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty",
+      "bytes": 13886,
+      "ms": 1172
+    },
+    {
+      "tag": "01-baseline",
+      "name": "epstopdf-sys.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg",
+      "bytes": 678,
+      "ms": 870
+    },
+    {
+      "tag": "01-baseline",
+      "name": "epstopdf.cfg",
+      "found": null,
+      "bytes": 0,
+      "ms": 863
+    },
+    {
+      "tag": "01-baseline",
+      "name": "epstopdf.cfg",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "01-baseline",
+      "name": "cmr10.vf",
+      "found": null,
+      "bytes": 0,
+      "ms": 860
+    },
+    {
+      "tag": "01-baseline",
+      "name": "pdftex.map",
+      "found": "d:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map",
+      "bytes": 5531417,
+      "ms": 683
+    },
+    {
+      "tag": "01-baseline",
+      "name": "cmmi10.vf",
+      "found": null,
+      "bytes": 0,
+      "ms": 638
+    },
+    {
+      "tag": "01-baseline",
+      "name": "cmmi10.pfb",
+      "found": "d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb",
+      "bytes": 36299,
+      "ms": 955
+    },
+    {
+      "tag": "01-baseline",
+      "name": "cmr10.pfb",
+      "found": "d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb",
+      "bytes": 35752,
+      "ms": 573
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "standalone.cls",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls",
+      "bytes": 29032,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "shellesc.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/tools/shellesc.sty",
+      "bytes": 4121,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "ifluatex.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/iftex/ifluatex.sty",
+      "bytes": 492,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "iftex.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty",
+      "bytes": 7984,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "xkeyval.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/xkeyval/xkeyval.sty",
+      "bytes": 4937,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "xkeyval.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/xkeyval.tex",
+      "bytes": 19231,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "xkvutils.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/xkvutils.tex",
+      "bytes": 7677,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "keyval.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/keyval.tex",
+      "bytes": 2725,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "standalone.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cfg",
+      "bytes": 1015,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "preview.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/preview/preview.sty",
+      "bytes": 13875,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "article.cls",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/base/article.cls",
+      "bytes": 20144,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "size10.clo",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/base/size10.clo",
+      "bytes": 8448,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "tikz.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty",
+      "bytes": 339,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgf.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty",
+      "bytes": 1090,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfrcs.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty",
+      "bytes": 325,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfutil-common.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex",
+      "bytes": 29239,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfutil-latex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def",
+      "bytes": 6950,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfrcs.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex",
+      "bytes": 4385,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgf.revision.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/pgf.revision.tex",
+      "bytes": 114,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcore.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty",
+      "bytes": 373,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "graphicx.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty",
+      "bytes": 8010,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "keyval.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty",
+      "bytes": 2671,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "graphics.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty",
+      "bytes": 18363,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "trig.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty",
+      "bytes": 4023,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "graphics.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg",
+      "bytes": 1224,
+      "ms": 1
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def",
+      "bytes": 19440,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfsys.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty",
+      "bytes": 443,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfsys.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex",
+      "bytes": 61351,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfkeys.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex",
+      "bytes": 39784,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfkeyslibraryfiltered.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex",
+      "bytes": 37433,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgf.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg",
+      "bytes": 926,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfsys-pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def",
+      "bytes": 12612,
+      "ms": 1
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfsys-common-pdf.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def",
+      "bytes": 5542,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfsyssoftpath.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex",
+      "bytes": 7778,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfsysprotocol.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex",
+      "bytes": 1896,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "xcolor.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "bytes": 55384,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "color.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg",
+      "bytes": 1213,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "mathcolor.ltx",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx",
+      "bytes": 2885,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcore.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex",
+      "bytes": 1016,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmath.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex",
+      "bytes": 949,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmathutil.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex",
+      "bytes": 8471,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmathparser.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex",
+      "bytes": 37466,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmathfunctions.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex",
+      "bytes": 9649,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmathfunctions.basic.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex",
+      "bytes": 28178,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmathfunctions.trigonometric.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex",
+      "bytes": 92405,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmathfunctions.random.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex",
+      "bytes": 7890,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmathfunctions.comparison.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex",
+      "bytes": 3865,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmathfunctions.base.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex",
+      "bytes": 10165,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmathfunctions.round.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex",
+      "bytes": 3379,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmathfunctions.misc.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex",
+      "bytes": 11024,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmathfunctions.integerarithmetics.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex",
+      "bytes": 3177,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmathcalc.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex",
+      "bytes": 13270,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmathfloat.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex",
+      "bytes": 104717,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfint.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex",
+      "bytes": 3063,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcorepoints.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex",
+      "bytes": 33335,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcorepathconstruct.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex",
+      "bytes": 44195,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcorepathusage.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex",
+      "bytes": 21302,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcorescopes.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex",
+      "bytes": 20821,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcoregraphicstate.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex",
+      "bytes": 6038,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcoretransformations.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex",
+      "bytes": 22012,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcorequick.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex",
+      "bytes": 2965,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcoreobjects.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex",
+      "bytes": 2544,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcorepathprocessing.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex",
+      "bytes": 17311,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcorearrows.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex",
+      "bytes": 43820,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcoreshade.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex",
+      "bytes": 35249,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcoreimage.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex",
+      "bytes": 6911,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcoreexternal.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex",
+      "bytes": 19324,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcorelayers.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex",
+      "bytes": 4883,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcoretransparency.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex",
+      "bytes": 8893,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcorepatterns.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex",
+      "bytes": 9691,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcorerdf.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex",
+      "bytes": 5196,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmoduleshapes.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex",
+      "bytes": 44792,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmoduleplot.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex",
+      "bytes": 16121,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcomp-version-0-65.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty",
+      "bytes": 21013,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfcomp-version-1-18.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty",
+      "bytes": 989,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgffor.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgffor.sty",
+      "bytes": 348,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfkeys.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty",
+      "bytes": 274,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmath.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/math/pgfmath.sty",
+      "bytes": 306,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgffor.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex",
+      "bytes": 24033,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "tikz.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex",
+      "bytes": 186782,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgflibraryplothandlers.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex",
+      "bytes": 32995,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgfmodulematrix.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex",
+      "bytes": 21211,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "tikzlibrarytopaths.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex",
+      "bytes": 11518,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "tikzlibraryarrows.meta.code.tex",
+      "found": null,
+      "bytes": 0,
+      "ms": 612
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "pgflibraryarrows.meta.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex",
+      "bytes": 58801,
+      "ms": 474
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "l3backend-pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def",
+      "bytes": 29785,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "main.aux",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "main.aux",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "supp-pdf.mkii",
+      "found": "d:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii",
+      "bytes": 71627,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "epstopdf-base.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty",
+      "bytes": 13886,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "epstopdf-sys.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg",
+      "bytes": 678,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "epstopdf.cfg",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "02-arrows-meta",
+      "name": "epstopdf.cfg",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "standalone.cls",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls",
+      "bytes": 29032,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "shellesc.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/tools/shellesc.sty",
+      "bytes": 4121,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "ifluatex.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/iftex/ifluatex.sty",
+      "bytes": 492,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "iftex.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty",
+      "bytes": 7984,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "xkeyval.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/xkeyval/xkeyval.sty",
+      "bytes": 4937,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "xkeyval.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/xkeyval.tex",
+      "bytes": 19231,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "xkvutils.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/xkvutils.tex",
+      "bytes": 7677,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "keyval.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/keyval.tex",
+      "bytes": 2725,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "standalone.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cfg",
+      "bytes": 1015,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "preview.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/preview/preview.sty",
+      "bytes": 13875,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "article.cls",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/base/article.cls",
+      "bytes": 20144,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "size10.clo",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/base/size10.clo",
+      "bytes": 8448,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "tikz.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty",
+      "bytes": 339,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgf.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty",
+      "bytes": 1090,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfrcs.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty",
+      "bytes": 325,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfutil-common.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex",
+      "bytes": 29239,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfutil-latex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def",
+      "bytes": 6950,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfrcs.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex",
+      "bytes": 4385,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgf.revision.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/pgf.revision.tex",
+      "bytes": 114,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcore.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty",
+      "bytes": 373,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "graphicx.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty",
+      "bytes": 8010,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "keyval.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty",
+      "bytes": 2671,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "graphics.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty",
+      "bytes": 18363,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "trig.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty",
+      "bytes": 4023,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "graphics.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg",
+      "bytes": 1224,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def",
+      "bytes": 19440,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfsys.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty",
+      "bytes": 443,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfsys.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex",
+      "bytes": 61351,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfkeys.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex",
+      "bytes": 39784,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfkeyslibraryfiltered.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex",
+      "bytes": 37433,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgf.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg",
+      "bytes": 926,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfsys-pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def",
+      "bytes": 12612,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfsys-common-pdf.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def",
+      "bytes": 5542,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfsyssoftpath.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex",
+      "bytes": 7778,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfsysprotocol.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex",
+      "bytes": 1896,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "xcolor.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "bytes": 55384,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "color.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg",
+      "bytes": 1213,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "mathcolor.ltx",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx",
+      "bytes": 2885,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcore.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex",
+      "bytes": 1016,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmath.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex",
+      "bytes": 949,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmathutil.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex",
+      "bytes": 8471,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmathparser.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex",
+      "bytes": 37466,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmathfunctions.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex",
+      "bytes": 9649,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmathfunctions.basic.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex",
+      "bytes": 28178,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmathfunctions.trigonometric.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex",
+      "bytes": 92405,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmathfunctions.random.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex",
+      "bytes": 7890,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmathfunctions.comparison.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex",
+      "bytes": 3865,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmathfunctions.base.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex",
+      "bytes": 10165,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmathfunctions.round.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex",
+      "bytes": 3379,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmathfunctions.misc.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex",
+      "bytes": 11024,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmathfunctions.integerarithmetics.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex",
+      "bytes": 3177,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmathcalc.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex",
+      "bytes": 13270,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmathfloat.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex",
+      "bytes": 104717,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfint.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex",
+      "bytes": 3063,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcorepoints.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex",
+      "bytes": 33335,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcorepathconstruct.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex",
+      "bytes": 44195,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcorepathusage.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex",
+      "bytes": 21302,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcorescopes.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex",
+      "bytes": 20821,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcoregraphicstate.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex",
+      "bytes": 6038,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcoretransformations.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex",
+      "bytes": 22012,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcorequick.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex",
+      "bytes": 2965,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcoreobjects.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex",
+      "bytes": 2544,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcorepathprocessing.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex",
+      "bytes": 17311,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcorearrows.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex",
+      "bytes": 43820,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcoreshade.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex",
+      "bytes": 35249,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcoreimage.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex",
+      "bytes": 6911,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcoreexternal.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex",
+      "bytes": 19324,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcorelayers.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex",
+      "bytes": 4883,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcoretransparency.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex",
+      "bytes": 8893,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcorepatterns.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex",
+      "bytes": 9691,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcorerdf.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex",
+      "bytes": 5196,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmoduleshapes.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex",
+      "bytes": 44792,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmoduleplot.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex",
+      "bytes": 16121,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcomp-version-0-65.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty",
+      "bytes": 21013,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfcomp-version-1-18.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty",
+      "bytes": 989,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgffor.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgffor.sty",
+      "bytes": 348,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfkeys.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty",
+      "bytes": 274,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmath.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/math/pgfmath.sty",
+      "bytes": 306,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgffor.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex",
+      "bytes": 24033,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "tikz.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex",
+      "bytes": 186782,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgflibraryplothandlers.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex",
+      "bytes": 32995,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pgfmodulematrix.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex",
+      "bytes": 21211,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "tikzlibrarytopaths.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex",
+      "bytes": 11518,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "tikzlibrarypositioning.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex",
+      "bytes": 3937,
+      "ms": 583
+    },
+    {
+      "tag": "03-positioning",
+      "name": "l3backend-pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def",
+      "bytes": 29785,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "main.aux",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "main.aux",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "supp-pdf.mkii",
+      "found": "d:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii",
+      "bytes": 71627,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "epstopdf-base.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty",
+      "bytes": 13886,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "epstopdf-sys.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg",
+      "bytes": 678,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "epstopdf.cfg",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "epstopdf.cfg",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "cmr10.vf",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "pdftex.map",
+      "found": "d:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map",
+      "bytes": 5531417,
+      "ms": 0
+    },
+    {
+      "tag": "03-positioning",
+      "name": "cmr10.pfb",
+      "found": "d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb",
+      "bytes": 35752,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "standalone.cls",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls",
+      "bytes": 29032,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "shellesc.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/tools/shellesc.sty",
+      "bytes": 4121,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "ifluatex.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/iftex/ifluatex.sty",
+      "bytes": 492,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "iftex.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty",
+      "bytes": 7984,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "xkeyval.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/xkeyval/xkeyval.sty",
+      "bytes": 4937,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "xkeyval.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/xkeyval.tex",
+      "bytes": 19231,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "xkvutils.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/xkvutils.tex",
+      "bytes": 7677,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "keyval.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/keyval.tex",
+      "bytes": 2725,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "standalone.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cfg",
+      "bytes": 1015,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "preview.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/preview/preview.sty",
+      "bytes": 13875,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "article.cls",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/base/article.cls",
+      "bytes": 20144,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "size10.clo",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/base/size10.clo",
+      "bytes": 8448,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "tikz.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty",
+      "bytes": 339,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgf.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty",
+      "bytes": 1090,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfrcs.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty",
+      "bytes": 325,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfutil-common.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex",
+      "bytes": 29239,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfutil-latex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def",
+      "bytes": 6950,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfrcs.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex",
+      "bytes": 4385,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgf.revision.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/pgf.revision.tex",
+      "bytes": 114,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcore.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty",
+      "bytes": 373,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "graphicx.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty",
+      "bytes": 8010,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "keyval.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty",
+      "bytes": 2671,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "graphics.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty",
+      "bytes": 18363,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "trig.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty",
+      "bytes": 4023,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "graphics.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg",
+      "bytes": 1224,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def",
+      "bytes": 19440,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfsys.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty",
+      "bytes": 443,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfsys.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex",
+      "bytes": 61351,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfkeys.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex",
+      "bytes": 39784,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfkeyslibraryfiltered.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex",
+      "bytes": 37433,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgf.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg",
+      "bytes": 926,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfsys-pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def",
+      "bytes": 12612,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfsys-common-pdf.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def",
+      "bytes": 5542,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfsyssoftpath.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex",
+      "bytes": 7778,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfsysprotocol.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex",
+      "bytes": 1896,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "xcolor.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "bytes": 55384,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "color.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg",
+      "bytes": 1213,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "mathcolor.ltx",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx",
+      "bytes": 2885,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcore.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex",
+      "bytes": 1016,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmath.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex",
+      "bytes": 949,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmathutil.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex",
+      "bytes": 8471,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmathparser.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex",
+      "bytes": 37466,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmathfunctions.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex",
+      "bytes": 9649,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmathfunctions.basic.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex",
+      "bytes": 28178,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmathfunctions.trigonometric.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex",
+      "bytes": 92405,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmathfunctions.random.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex",
+      "bytes": 7890,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmathfunctions.comparison.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex",
+      "bytes": 3865,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmathfunctions.base.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex",
+      "bytes": 10165,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmathfunctions.round.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex",
+      "bytes": 3379,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmathfunctions.misc.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex",
+      "bytes": 11024,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmathfunctions.integerarithmetics.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex",
+      "bytes": 3177,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmathcalc.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex",
+      "bytes": 13270,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmathfloat.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex",
+      "bytes": 104717,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfint.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex",
+      "bytes": 3063,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcorepoints.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex",
+      "bytes": 33335,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcorepathconstruct.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex",
+      "bytes": 44195,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcorepathusage.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex",
+      "bytes": 21302,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcorescopes.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex",
+      "bytes": 20821,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcoregraphicstate.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex",
+      "bytes": 6038,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcoretransformations.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex",
+      "bytes": 22012,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcorequick.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex",
+      "bytes": 2965,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcoreobjects.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex",
+      "bytes": 2544,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcorepathprocessing.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex",
+      "bytes": 17311,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcorearrows.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex",
+      "bytes": 43820,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcoreshade.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex",
+      "bytes": 35249,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcoreimage.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex",
+      "bytes": 6911,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcoreexternal.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex",
+      "bytes": 19324,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcorelayers.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex",
+      "bytes": 4883,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcoretransparency.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex",
+      "bytes": 8893,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcorepatterns.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex",
+      "bytes": 9691,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcorerdf.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex",
+      "bytes": 5196,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmoduleshapes.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex",
+      "bytes": 44792,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmoduleplot.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex",
+      "bytes": 16121,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcomp-version-0-65.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty",
+      "bytes": 21013,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfcomp-version-1-18.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty",
+      "bytes": 989,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgffor.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgffor.sty",
+      "bytes": 348,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfkeys.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty",
+      "bytes": 274,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmath.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/math/pgfmath.sty",
+      "bytes": 306,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgffor.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex",
+      "bytes": 24033,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "tikz.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex",
+      "bytes": 186782,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgflibraryplothandlers.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex",
+      "bytes": 32995,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pgfmodulematrix.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex",
+      "bytes": 21211,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "tikzlibrarytopaths.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex",
+      "bytes": 11518,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "tikzlibrarycalc.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex",
+      "bytes": 15929,
+      "ms": 577
+    },
+    {
+      "tag": "04-calc",
+      "name": "l3backend-pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def",
+      "bytes": 29785,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "main.aux",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "main.aux",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "supp-pdf.mkii",
+      "found": "d:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii",
+      "bytes": 71627,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "epstopdf-base.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty",
+      "bytes": 13886,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "epstopdf-sys.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg",
+      "bytes": 678,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "epstopdf.cfg",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "epstopdf.cfg",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "cmr10.vf",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "pdftex.map",
+      "found": "d:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map",
+      "bytes": 5531417,
+      "ms": 0
+    },
+    {
+      "tag": "04-calc",
+      "name": "cmr10.pfb",
+      "found": "d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb",
+      "bytes": 35752,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "standalone.cls",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls",
+      "bytes": 29032,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "shellesc.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/tools/shellesc.sty",
+      "bytes": 4121,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "ifluatex.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/iftex/ifluatex.sty",
+      "bytes": 492,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "iftex.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty",
+      "bytes": 7984,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "xkeyval.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/xkeyval/xkeyval.sty",
+      "bytes": 4937,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "xkeyval.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/xkeyval.tex",
+      "bytes": 19231,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "xkvutils.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/xkvutils.tex",
+      "bytes": 7677,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "keyval.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/keyval.tex",
+      "bytes": 2725,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "standalone.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cfg",
+      "bytes": 1015,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "preview.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/preview/preview.sty",
+      "bytes": 13875,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "article.cls",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/base/article.cls",
+      "bytes": 20144,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "size10.clo",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/base/size10.clo",
+      "bytes": 8448,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "tikz.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty",
+      "bytes": 339,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgf.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty",
+      "bytes": 1090,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfrcs.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty",
+      "bytes": 325,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfutil-common.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex",
+      "bytes": 29239,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfutil-latex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def",
+      "bytes": 6950,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfrcs.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex",
+      "bytes": 4385,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgf.revision.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/pgf.revision.tex",
+      "bytes": 114,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcore.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty",
+      "bytes": 373,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "graphicx.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty",
+      "bytes": 8010,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "keyval.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty",
+      "bytes": 2671,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "graphics.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty",
+      "bytes": 18363,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "trig.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty",
+      "bytes": 4023,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "graphics.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg",
+      "bytes": 1224,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def",
+      "bytes": 19440,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfsys.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty",
+      "bytes": 443,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfsys.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex",
+      "bytes": 61351,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfkeys.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex",
+      "bytes": 39784,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfkeyslibraryfiltered.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex",
+      "bytes": 37433,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgf.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg",
+      "bytes": 926,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfsys-pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def",
+      "bytes": 12612,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfsys-common-pdf.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def",
+      "bytes": 5542,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfsyssoftpath.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex",
+      "bytes": 7778,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfsysprotocol.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex",
+      "bytes": 1896,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "xcolor.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "bytes": 55384,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "color.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg",
+      "bytes": 1213,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "mathcolor.ltx",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx",
+      "bytes": 2885,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcore.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex",
+      "bytes": 1016,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmath.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex",
+      "bytes": 949,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmathutil.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex",
+      "bytes": 8471,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmathparser.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex",
+      "bytes": 37466,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmathfunctions.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex",
+      "bytes": 9649,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmathfunctions.basic.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex",
+      "bytes": 28178,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmathfunctions.trigonometric.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex",
+      "bytes": 92405,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmathfunctions.random.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex",
+      "bytes": 7890,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmathfunctions.comparison.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex",
+      "bytes": 3865,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmathfunctions.base.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex",
+      "bytes": 10165,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmathfunctions.round.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex",
+      "bytes": 3379,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmathfunctions.misc.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex",
+      "bytes": 11024,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmathfunctions.integerarithmetics.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex",
+      "bytes": 3177,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmathcalc.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex",
+      "bytes": 13270,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmathfloat.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex",
+      "bytes": 104717,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfint.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex",
+      "bytes": 3063,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcorepoints.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex",
+      "bytes": 33335,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcorepathconstruct.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex",
+      "bytes": 44195,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcorepathusage.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex",
+      "bytes": 21302,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcorescopes.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex",
+      "bytes": 20821,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcoregraphicstate.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex",
+      "bytes": 6038,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcoretransformations.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex",
+      "bytes": 22012,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcorequick.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex",
+      "bytes": 2965,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcoreobjects.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex",
+      "bytes": 2544,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcorepathprocessing.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex",
+      "bytes": 17311,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcorearrows.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex",
+      "bytes": 43820,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcoreshade.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex",
+      "bytes": 35249,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcoreimage.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex",
+      "bytes": 6911,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcoreexternal.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex",
+      "bytes": 19324,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcorelayers.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex",
+      "bytes": 4883,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcoretransparency.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex",
+      "bytes": 8893,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcorepatterns.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex",
+      "bytes": 9691,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcorerdf.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex",
+      "bytes": 5196,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmoduleshapes.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex",
+      "bytes": 44792,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmoduleplot.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex",
+      "bytes": 16121,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcomp-version-0-65.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty",
+      "bytes": 21013,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfcomp-version-1-18.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty",
+      "bytes": 989,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgffor.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgffor.sty",
+      "bytes": 348,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfkeys.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty",
+      "bytes": 274,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmath.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/math/pgfmath.sty",
+      "bytes": 306,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgffor.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex",
+      "bytes": 24033,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "tikz.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex",
+      "bytes": 186782,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgflibraryplothandlers.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex",
+      "bytes": 32995,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgfmodulematrix.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex",
+      "bytes": 21211,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "tikzlibrarytopaths.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex",
+      "bytes": 11518,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "tikzlibrarypatterns.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.code.tex",
+      "bytes": 770,
+      "ms": 560
+    },
+    {
+      "tag": "05-patterns",
+      "name": "pgflibrarypatterns.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.code.tex",
+      "bytes": 7936,
+      "ms": 544
+    },
+    {
+      "tag": "05-patterns",
+      "name": "l3backend-pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def",
+      "bytes": 29785,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "main.aux",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "main.aux",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "supp-pdf.mkii",
+      "found": "d:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii",
+      "bytes": 71627,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "epstopdf-base.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty",
+      "bytes": 13886,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "epstopdf-sys.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg",
+      "bytes": 678,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "epstopdf.cfg",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "05-patterns",
+      "name": "epstopdf.cfg",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "standalone.cls",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls",
+      "bytes": 29032,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "shellesc.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/tools/shellesc.sty",
+      "bytes": 4121,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "ifluatex.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/iftex/ifluatex.sty",
+      "bytes": 492,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "iftex.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty",
+      "bytes": 7984,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "xkeyval.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/xkeyval/xkeyval.sty",
+      "bytes": 4937,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "xkeyval.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/xkeyval.tex",
+      "bytes": 19231,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "xkvutils.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/xkvutils.tex",
+      "bytes": 7677,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "keyval.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/xkeyval/keyval.tex",
+      "bytes": 2725,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "standalone.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cfg",
+      "bytes": 1015,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "preview.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/preview/preview.sty",
+      "bytes": 13875,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "article.cls",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/base/article.cls",
+      "bytes": 20144,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "size10.clo",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/base/size10.clo",
+      "bytes": 8448,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "tikz.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty",
+      "bytes": 339,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgf.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty",
+      "bytes": 1090,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfrcs.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty",
+      "bytes": 325,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfutil-common.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex",
+      "bytes": 29239,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfutil-latex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def",
+      "bytes": 6950,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfrcs.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex",
+      "bytes": 4385,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgf.revision.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/pgf.revision.tex",
+      "bytes": 114,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcore.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty",
+      "bytes": 373,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "graphicx.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty",
+      "bytes": 8010,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "keyval.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty",
+      "bytes": 2671,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "graphics.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty",
+      "bytes": 18363,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "trig.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty",
+      "bytes": 4023,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "graphics.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg",
+      "bytes": 1224,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def",
+      "bytes": 19440,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfsys.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty",
+      "bytes": 443,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfsys.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex",
+      "bytes": 61351,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfkeys.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex",
+      "bytes": 39784,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfkeyslibraryfiltered.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex",
+      "bytes": 37433,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgf.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg",
+      "bytes": 926,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfsys-pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def",
+      "bytes": 12612,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfsys-common-pdf.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def",
+      "bytes": 5542,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfsyssoftpath.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex",
+      "bytes": 7778,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfsysprotocol.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex",
+      "bytes": 1896,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "xcolor.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "bytes": 55384,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "color.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg",
+      "bytes": 1213,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "mathcolor.ltx",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx",
+      "bytes": 2885,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcore.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex",
+      "bytes": 1016,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmath.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex",
+      "bytes": 949,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmathutil.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex",
+      "bytes": 8471,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmathparser.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex",
+      "bytes": 37466,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmathfunctions.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex",
+      "bytes": 9649,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmathfunctions.basic.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex",
+      "bytes": 28178,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmathfunctions.trigonometric.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex",
+      "bytes": 92405,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmathfunctions.random.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex",
+      "bytes": 7890,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmathfunctions.comparison.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex",
+      "bytes": 3865,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmathfunctions.base.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex",
+      "bytes": 10165,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmathfunctions.round.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex",
+      "bytes": 3379,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmathfunctions.misc.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex",
+      "bytes": 11024,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmathfunctions.integerarithmetics.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex",
+      "bytes": 3177,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmathcalc.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex",
+      "bytes": 13270,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmathfloat.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex",
+      "bytes": 104717,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfint.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex",
+      "bytes": 3063,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcorepoints.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex",
+      "bytes": 33335,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcorepathconstruct.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex",
+      "bytes": 44195,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcorepathusage.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex",
+      "bytes": 21302,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcorescopes.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex",
+      "bytes": 20821,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcoregraphicstate.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex",
+      "bytes": 6038,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcoretransformations.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex",
+      "bytes": 22012,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcorequick.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex",
+      "bytes": 2965,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcoreobjects.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex",
+      "bytes": 2544,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcorepathprocessing.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex",
+      "bytes": 17311,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcorearrows.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex",
+      "bytes": 43820,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcoreshade.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex",
+      "bytes": 35249,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcoreimage.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex",
+      "bytes": 6911,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcoreexternal.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex",
+      "bytes": 19324,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcorelayers.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex",
+      "bytes": 4883,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcoretransparency.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex",
+      "bytes": 8893,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcorepatterns.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex",
+      "bytes": 9691,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcorerdf.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex",
+      "bytes": 5196,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmoduleshapes.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex",
+      "bytes": 44792,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmoduleplot.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex",
+      "bytes": 16121,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcomp-version-0-65.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty",
+      "bytes": 21013,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfcomp-version-1-18.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty",
+      "bytes": 989,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgffor.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgffor.sty",
+      "bytes": 348,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfkeys.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty",
+      "bytes": 274,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmath.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/pgf/math/pgfmath.sty",
+      "bytes": 306,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgffor.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex",
+      "bytes": 24033,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "tikz.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex",
+      "bytes": 186782,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgflibraryplothandlers.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex",
+      "bytes": 32995,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgfmodulematrix.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex",
+      "bytes": 21211,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "tikzlibrarytopaths.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex",
+      "bytes": 11518,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "tikzlibraryshapes.geometric.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex",
+      "bytes": 339,
+      "ms": 519
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pgflibraryshapes.geometric.code.tex",
+      "found": "d:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex",
+      "bytes": 161011,
+      "ms": 634
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "l3backend-pdftex.def",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def",
+      "bytes": 29785,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "main.aux",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "main.aux",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "supp-pdf.mkii",
+      "found": "d:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii",
+      "bytes": 71627,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "epstopdf-base.sty",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty",
+      "bytes": 13886,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "epstopdf-sys.cfg",
+      "found": "d:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg",
+      "bytes": 678,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "epstopdf.cfg",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "epstopdf.cfg",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "cmr10.vf",
+      "found": null,
+      "bytes": 0,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "pdftex.map",
+      "found": "d:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map",
+      "bytes": 5531417,
+      "ms": 0
+    },
+    {
+      "tag": "06-shapes-geometric",
+      "name": "cmr10.pfb",
+      "found": "d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb",
+      "bytes": 35752,
+      "ms": 0
+    }
+  ],
+  "totalMs": 69871,
+  "uniqueLookups": 102
+}

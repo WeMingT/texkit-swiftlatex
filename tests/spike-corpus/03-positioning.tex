@@ -1,0 +1,11 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\begin{document}
+\begin{tikzpicture}
+\node (a) {A};
+\node (b) [right=of a] {B};
+\node (c) [above right=1cm and 0.5cm of b] {C};
+\draw (a) -- (b) -- (c);
+\end{tikzpicture}
+\end{document}

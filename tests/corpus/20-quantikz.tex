@@ -1,0 +1,11 @@
+\documentclass{standalone}
+% quantikz: Bell-state circuit. quantikz.sty only loads tikzlibrary
+% quantikz2, whose .code.tex pulls environ/xargs/ifthen/xstring/xparse/
+% etoolbox/mathtools/pgfmath — the chain this figure must exercise.
+\usepackage{quantikz}
+\begin{document}
+\begin{quantikz}
+\lstick{$\ket{0}$} & \gate{H} & \ctrl{1} & \meter{} \\
+\lstick{$\ket{0}$} & \qw      & \targ{}  & \qw
+\end{quantikz}
+\end{document}
