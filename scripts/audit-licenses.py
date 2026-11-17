@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""License audit: map every file in closure/closure-list.txt to its TeX Live
+"""License audit: map the closure list and selected font whitelist to TeX Live
 package and license, with independent per-file header evidence.
 
 Sources used (file headers + texmf-dist docs + CTAN
@@ -23,6 +23,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
+from font_whitelist import read_entries, selected_files
 
 ROOT = Path(__file__).resolve().parent.parent
 TL = Path(os.environ.get("TEXLIVE_ROOT", os.path.join(os.path.expanduser("~"), "texlive/2025")))
@@ -71,6 +72,15 @@ with TLDB.open() as fh:
 
 # ---------- 2. resolve closure names via kpsewhich ----------
 names = [l.strip() for l in LIST.read_text().splitlines() if l.strip()]
+font_paths = {}
+for entry in read_entries(ROOT / 'closure/font-whitelist.txt'):
+    files = selected_files(TL / 'texmf-dist', entry)
+    print(f'# whitelist {entry[0]}\t{len(files)}')
+    for font in files:
+        if font.name in font_paths:
+            sys.exit(f'duplicate font basename: {font.name}')
+        font_paths[font.name] = str(font)
+names = sorted(set(names) | set(font_paths))
 
 def resolve(name):
     for args in (["-progname=pdflatex", name], [name]):
@@ -81,7 +91,8 @@ def resolve(name):
     return name, ""
 
 with ThreadPoolExecutor(max_workers=8) as ex:
-    path_of = dict(ex.map(resolve, names))
+    path_of = dict(ex.map(resolve, [name for name in names if name not in font_paths]))
+path_of.update(font_paths)
 
 # ---------- 3. group by TL package ----------
 families = defaultdict(list)
@@ -100,6 +111,8 @@ for name in names:
 
 # ---------- 4. header scan (independent per-file evidence) ----------
 HDR = [
+    ("GUST", re.compile(r"GUST Font License", re.I)),
+    ("LGPL", re.compile(r"GNU (?:Lesser|Library) General Public License", re.I)),
     ("LPPL/dual", re.compile(r"LaTeX Project Public License", re.I)),
     ("GPL-3+", re.compile(r"either version 3 of the License", re.I)),
     ("GPL", re.compile(r"GNU General Public License|GNU Public License|GNU licence", re.I)),

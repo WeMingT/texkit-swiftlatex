@@ -43,7 +43,7 @@ Gates (exit 1 on violation):
   - any Tier A/B name that kpsewhich cannot resolve (nothing silently
     dropped), or that resolves to a different file than the one enumerated,
   - duplicate basenames over distinct TL2025 files,
-  - shape: total > 650, or any beamer/hyperref/babel/geometry family name
+  - shape: total > 800, or any beamer/hyperref/babel/geometry family name
     (generic typesetting packages ⇒ a seed or BFS bug).
 
 Determinism: a pure function of (TL2025 tree, union-summary.json). No
@@ -78,8 +78,12 @@ KPSEWHICH = os.environ.get(
 CLOSURE_LIST = pathlib.Path(os.environ.get(
     "CLOSURE_LIST", str(ROOT / "closure" / "closure-list.txt")))
 
-MAX_TOTAL = 650          # brief Step 4: >650 means a seed or BFS bug
+MAX_TOTAL = 800          # Expanded encoding and package list stays below 800.
 FORBIDDEN_PREFIXES = ("beamer", "hyperref", "babel", "geometry")
+
+# relsize places documentation after endinput; its usepackage{type1cm}
+# example is explanatory text, not a load. Other sources retain all edges.
+DOC_AFTER_ENDINPUT = frozenset({"relsize.sty"})
 
 # DERIVE_CLOSURE_DEBUG=1 prints the first BFS edge that pulled in each name.
 DEBUG = bool(os.environ.get("DERIVE_CLOSURE_DEBUG"))
@@ -104,9 +108,8 @@ DEBUG = bool(os.environ.get("DERIVE_CLOSURE_DEBUG"))
 # failed on exactly this name, green after the supplement):
 # 1. Macro-concatenated package loop: tikzlings v2.5's core tikzlings.sty
 #    does \RequirePackage{tikzlings-#1} over its whole animal list; loading
-#    all 28 animal packages is neither wanted nor shippable, so the corpus
-#    figure loads the flagship penguin package directly (which requires only
-#    tikz + tikzlings-addons, both in the closure).
+#    the complete animal list requires explicit seeds because
+#    static traversal cannot expand the loader's loop.
 # 2. Kernel file substitution: latex.ltx declares
 #    \declare@file@substitution{atveryend.sty}{atveryend-ltx.sty}, so
 #    \usepackage{atveryend} (tikzlibraryexternal.code.tex, pulled in by
@@ -156,6 +159,21 @@ SUPPLEMENT = frozenset({
     # load-bearing optional configs (blind spot 5)
     "tkz-base.cfg",
     "tkz-euclide.cfg",
+    # Encoding and family names are expanded at runtime by font loaders.
+    # Keep declarations paired with retained fonts; preloaded CM families
+    # and declarations requiring unshipped EC/TC fonts remain excluded.
+    "cp1252.def", "latin1.def", "latin9.def", "utf8.def", "utf8-2018.def",
+    "ot1enc.def", "t1enc.def", "ts1enc.def",
+    "ot1cmdh.fd", "ot1cmfib.fd", "ot1cmfr.fd", "ot1cmvtt.fd",
+    "omllmm.fd", "omllmr.fd", "omslmr.fd", "omslmsy.fd", "omxlmex.fd",
+    "ot1lmdh.fd", "ot1lmr.fd", "ot1lmss.fd", "ot1lmssq.fd",
+    "ot1lmtt.fd", "ot1lmvtt.fd",
+    "t1lmdh.fd", "t1lmr.fd", "t1lmss.fd", "t1lmssq.fd",
+    "t1lmtt.fd", "t1lmvtt.fd",
+    "ts1lmdh.fd", "ts1lmr.fd", "ts1lmss.fd", "ts1lmssq.fd",
+    "ts1lmtt.fd", "ts1lmvtt.fd",
+    "ot1pplj.fd", "ot1pplx.fd", "t1ppl.fd", "t1pplj.fd", "t1pplx.fd",
+    "ts1ppl.fd", "ts1pplj.fd", "ts1pplx.fd", "ufplm.fd", "ufplmbb.fd",
 })
 
 
@@ -322,6 +340,26 @@ TIER_B_SEEDS = (
     # .code.tex; quantikz.sty only loads quantikz2, the v1 library is
     # reachable solely via an explicit \usetikzlibrary{quantikz}.
     "tikzlibraryquantikz.code.tex",
+    # Explicitly supported encoding, table, tree, chemistry and math entries.
+    "fontenc.sty", "inputenc.sty", "lmodern.sty", "bm.sty",
+    "booktabs.sty", "multirow.sty", "makecell.sty", "tabularx.sty",
+    "dcolumn.sty", "hhline.sty", "bigstrut.sty", "bigdelim.sty",
+    "forest.sty", "mhchem.sty", "braket.sty",
+    "algpseudocode.sty", "algorithm.sty", "algorithm2e.sty",
+    # Circuit styles are assembled from the argument to \ctikzloadstyle.
+    "ctikzstyle-romano.tex", "ctikzstyle-legacy.tex", "ctikzstyle-example.tex",
+    # The tikzlings loader constructs these package names in an animal loop.
+    "tikzlings-anteaters.sty", "tikzlings-apes.sty", "tikzlings-bats.sty",
+    "tikzlings-bears.sty", "tikzlings-bees.sty", "tikzlings-bugs.sty",
+    "tikzlings-cats.sty", "tikzlings-chickens.sty", "tikzlings-coatis.sty",
+    "tikzlings-dogs.sty", "tikzlings-elephants.sty", "tikzlings-hippos.sty",
+    "tikzlings-koalas.sty", "tikzlings-marmots.sty", "tikzlings-meerkats.sty",
+    "tikzlings-mice.sty", "tikzlings-moles.sty", "tikzlings-owls.sty",
+    "tikzlings-pandas.sty", "tikzlings-pigs.sty", "tikzlings-rhinos.sty",
+    "tikzlings-sheep.sty", "tikzlings-sloths.sty", "tikzlings-snowmen.sty",
+    "tikzlings-squirrels.sty", "tikzlings-turkeys.sty", "tikzlings-wolves.sty",
+    # forest loads libraries by constructed name through \useforestlibrary.
+    "forest-lib-edges.sty", "forest-lib-linguistics.sty",
 )
 
 # File types that never carry static load edges.
@@ -363,9 +401,9 @@ SIZEFN_KEYWORDS = frozenset({"sub", "ssub", "gen", "sgen", "empty",
                              "scaled", "at"})
 
 
-def strip_comments(text):
+def strip_comments(text, source_name=None):
     """Drop everything from the first unescaped % to end of line (handles
-    \\% and \\\\% correctly)."""
+    \\% and \\\\% correctly), and trailing documentation after endinput."""
     lines = []
     for line in text.split("\n"):
         i, n = 0, len(line)
@@ -377,7 +415,10 @@ def strip_comments(text):
             if c == "%":
                 break
             i += 1
-        lines.append(line[:i])
+        code = line[:i]
+        if source_name in DOC_AFTER_ENDINPUT and code.rstrip() == r"\endinput":
+            break
+        lines.append(code)
     return "\n".join(lines)
 
 
@@ -629,7 +670,7 @@ def run_bfs(resolver, pdftex_map, missing):
                                                 errors="replace")
         except OSError as exc:
             sys.exit(f"FATAL: cannot read {path}: {exc}")
-        text = strip_comments(text)
+        text = strip_comments(text, name)
         for candidates, soft in extract_edges(text, resolver, pdftex_map,
                                               macro_skipped):
             chosen = None

@@ -1,0 +1,155 @@
+name: pdftex-build
+on:
+  push:
+    tags: ['engine-v*']
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: pdftex-build-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    permissions:
+      contents: read
+    steps:
+      - name: Prepare disk space
+        run: |
+          df -h
+          sudo rm -rf -- /usr/local/lib/android /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL
+          df -h
+          nproc
+          free -g
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Fetch and verify pinned sources
+        run: |
+          bash scripts/in-builder.sh -- bash scripts/fetch-sources.sh
+          df -h
+          docker system df
+      - name: Build all assets offline
+        run: |
+          bash scripts/in-builder.sh --network none -- bash scripts/build-pdftex.sh all
+          df -h
+          docker system df
+      - name: Run all release gates
+        run: |
+          bash scripts/check-pdftex.sh
+          df -h
+          docker system df
+      - name: Compare the committed release identities
+        run: |
+          bash scripts/in-builder.sh --network none -- cmp build/engine-v2/engine-manifest.json release/engine-manifest.json
+          bash scripts/in-builder.sh --network none -- python3 scripts/tex-sources.py identity --expect release/tex-sources.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: pdftex-assets
+          path: |
+            build/engine-v2/swiftlatexpdftex.worker.js
+            build/engine-v2/swiftlatexpdftex.fmt
+            build/engine-v2/pdftocairo.js
+            build/engine-v2/texfiles.tar.gz
+            build/engine-v2/engine-manifest.json
+            build/engine-v2/tex-sources.tar.gz
+          if-no-files-found: error
+          retention-days: 7
+  publish:
+    needs: build
+    runs-on: ubuntu-24.04
+    if: github.repository == 'WeMingT/texkit-swiftlatex' && github.event_name == 'push' && github.ref == 'refs/tags/engine-v2'
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: pdftex-assets
+          path: build/engine-v2
+      - name: Verify release inputs
+        run: |
+          cmp build/engine-v2/engine-manifest.json release/engine-manifest.json
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('build/engine-v2')
+          manifest = json.loads((root / 'engine-manifest.json').read_text())
+          assert manifest['engineVersion'] == 'swiftpdftex-v2'
+          assert manifest['baseUrl'] == 'https://github.com/WeMingT/texkit-swiftlatex/releases/download/engine-v2/'
+          names = ['swiftlatexpdftex.worker.js', 'swiftlatexpdftex.fmt', 'pdftocairo.js', 'texfiles.tar.gz']
+          assert [a['name'] for a in manifest['assets']] == names
+          assert sorted(p.name for p in root.iterdir()) == sorted(names + ['engine-manifest.json', 'tex-sources.tar.gz'])
+          for asset in manifest['assets']:
+              data = (root / asset['name']).read_bytes()
+              assert len(data) == asset['bytes'] and len(data) > 0, asset['name']
+              assert hashlib.sha256(data).hexdigest() == asset['sha256'], asset['name']
+          fingerprint = hashlib.sha256((''.join(a['sha256'] for a in manifest['assets']) + '2025').encode()).hexdigest()
+          assert fingerprint == manifest['fingerprint']
+          assert sum(a['bytes'] for a in manifest['assets']) <= 52428800
+          source = json.loads(Path('release/tex-sources.json').read_text())
+          assert source['name'] == 'tex-sources.tar.gz'
+          data = (root / source['name']).read_bytes()
+          assert len(data) == source['bytes'] and hashlib.sha256(data).hexdigest() == source['sha256']
+          print('PASS release inputs: four assets, manifest and TeX sources')
+          PY
+      - name: Attest asset provenance
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-path: |
+            build/engine-v2/swiftlatexpdftex.worker.js
+            build/engine-v2/swiftlatexpdftex.fmt
+            build/engine-v2/pdftocairo.js
+            build/engine-v2/texfiles.tar.gz
+            build/engine-v2/tex-sources.tar.gz
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import os, subprocess
+          tag, repository = os.environ['GITHUB_REF_NAME'], os.environ['GITHUB_REPOSITORY']
+          found = subprocess.run(['gh', 'release', 'view', tag, '--repo', repository],
+                                 capture_output=True, text=True)
+          if found.returncode == 0:
+              raise RuntimeError('release already exists; refusing to overwrite it')
+          if found.stderr.strip() != 'release not found':
+              raise RuntimeError('cannot inspect release: ' + found.stderr)
+          subprocess.run(['gh', 'release', 'create', tag, '--repo', repository, '--verify-tag',
+                          '--notes-file', 'release/engine-v2-notes.md',
+                          'build/engine-v2/swiftlatexpdftex.worker.js',
+                          'build/engine-v2/swiftlatexpdftex.fmt', 'build/engine-v2/pdftocairo.js',
+                          'build/engine-v2/texfiles.tar.gz', 'release/engine-manifest.json',
+                          'build/engine-v2/tex-sources.tar.gz',
+                          'THIRD-PARTY-NOTICES.md'], check=True)
+          PY
+      - name: Verify public downloads
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, subprocess
+          from pathlib import Path
+          manifest = json.loads(Path('release/engine-manifest.json').read_text())
+          source = json.loads(Path('release/tex-sources.json').read_text())
+          output = Path('build/download-check')
+          output.mkdir(exist_ok=True)
+          names = [a['name'] for a in manifest['assets']] + ['engine-manifest.json', 'tex-sources.tar.gz', 'THIRD-PARTY-NOTICES.md']
+          for name in names:
+              subprocess.run(['curl', '-fsSL', '--retry', '5', '--retry-all-errors', '--retry-delay', '10',
+                              manifest['baseUrl'] + name, '-o', str(output / name)], check=True)
+          for asset in manifest['assets']:
+              data = (output / asset['name']).read_bytes()
+              assert len(data) == asset['bytes'], asset['name']
+              assert hashlib.sha256(data).hexdigest() == asset['sha256'], asset['name']
+          assert (output / 'engine-manifest.json').read_bytes() == Path('release/engine-manifest.json').read_bytes()
+          assert (output / 'THIRD-PARTY-NOTICES.md').read_bytes() == Path('THIRD-PARTY-NOTICES.md').read_bytes()
+          data = (output / source['name']).read_bytes()
+          assert source['name'] == 'tex-sources.tar.gz'
+          assert len(data) == source['bytes'] and hashlib.sha256(data).hexdigest() == source['sha256']
+          print('PASS public downloads: four assets, manifest, notices and TeX sources')
+          PY

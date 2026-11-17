@@ -92,3 +92,10 @@ fonts/vf/adobe/palatino
 fonts/type1/public/fpl
 fonts/tfm/adobe/symbol
 fonts/type1/urw/symbol
+# Latin Modern retains OT1, T1, TS1 and math encodings. Other encodings
+# require definition files that are not shipped. Keep every optical size:
+# the document chooses sizes, while all 92 Type 1 outlines are reachable
+# from the retained metrics. Explicit filters also include their encodings.
+fonts/tfm/public/lm :: rm-*.tfm ec-*.tfm ts1-*.tfm lmmi*.tfm lmsy*.tfm lmex*.tfm lmbsy*.tfm
+fonts/type1/public/lm
+fonts/enc/dvips/lm :: lm-ec.enc lm-mathex.enc lm-mathit.enc lm-mathsy.enc lm-rm.enc lm-rmsc.enc lm-rmtt.enc lm-ts1.enc

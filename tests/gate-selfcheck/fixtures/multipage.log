@@ -1,0 +1,23 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (SwiftLaTeX PDFTeX 0.3.0) (preloaded format=swiftlatexpdftex)
+entering extended mode
+(main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(/tex/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/tex/size10.clo)) (/tex/l3backend-pdftex.def)
+No file main.aux.
+(/tex/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/tex/epstopdf-base.sty (/tex/epstopdf-sys.cfg))
+
+Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
+ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
+your preamble.
+ on input line 3.
+
+
+[1{/tex/pdftex.map}]
+[2] (main.aux) )</tex/cmr10.pfb>
+Output written on main.pdf (2 pages, 13732 bytes).
+Transcript written on main.log.

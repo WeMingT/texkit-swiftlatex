@@ -160,11 +160,10 @@ superseded with it).
 
 ### Total size vs limits
 
-**30,250,763 B = 28.85 MiB** — under the 30 MiB warning line (headroom 1,206,517 B ≈
-1.15 MiB) and the 35 MiB red line (headroom 6,449,397 B ≈ 6.15 MiB). vs the
-pre-fix total 30,251,185 B the change is −422 B: the pdftocairo swap
-5,631,169 → 5,630,761 B (shorter fixed constants) and the tarball swap
-3,792,364 → 3,792,350 B (sanitized map header). Worker and fmt are unchanged.
+The final engine-v1 assets in the table total **33,784,182 B (32.22 MiB)**.
+The earlier 30,250,763 B figure used the smaller closure before the font
+whitelist expansion. The current four-asset limit is **52,428,800 B
+(50 MiB)**. Engine v2 totals 45,991,727 B; its identities are recorded below.
 
 ### Reconciliation vs the plan's predictions
 
@@ -344,3 +343,127 @@ groff-encoding body lines the author's updmap run lacks, so it stages
 unmodified where the author's needs header sanitization). The gate's
 expected digest follows from that one swapped member plus the
 deterministic pack.
+
+## Engine v2 assets
+
+The synchronous worker embeds wasm without Asyncify. The format preloads
+pgfplots from the frozen TeX Live 2025 tree and routes T1 and TS1 text to
+Latin Modern. The 1,416-member closure contains a font map trimmed to its
+TFM members. The converter retains engine-v1 bytes.
+
+| Asset | Bytes | SHA-256 |
+|---|---:|---|
+| swiftlatexpdftex.worker.js | 2,080,266 | `7bd90f2e76eb19171f2ca63b222114eb66c55a2ff81cbe36e4c1d5e7eb85df46` |
+| swiftlatexpdftex.fmt | 22,616,021 | `1972b46331c9d39a7a3db852367a134dbc214b1a5c718904abb1ba3263d0e451` |
+| pdftocairo.js | 5,630,761 | `3d5a1d4e4da59d45478451ef2c2e4fc5e519b6c9872187ddcd98358f796a26c3` |
+| texfiles.tar.gz | 15,664,679 | `f45cde7d3c05032b1dfb3d84627006dc4d4bce38a4e3d0cbd4bd7d36315f8efc` |
+
+Total: **45,991,727 B (43.86 MiB)**, below 52,428,800 B. Fingerprint:
+`c02bd902278033b5b4f976f4845bf2eaa9b45351e4541cd1c507d9508cffbad6`.
+
+Build inputs, also pinned in toolchain.lock.json:
+
+- `emscripten/emsdk@sha256:8714ed3a9fb585e662c931259a996bac36a57a8dd34b81e8277436fd77364475`
+- `texlive/texlive@sha256:f25ee2dcd00f58198f918064f4a1c8562410b33e84155bd55b02b419d73d9391`
+
+Two independent format builds compare byte for byte and serve 354 format
+inputs, including pgfplots.sty. The `inlined` metadata additionally records
+closure/fmt-font-redirect.tex, 2,822 bytes, SHA-256
+`64fdb75ada7ae5590ac0dadf8506222f33a5a98e4ade782231772b3d847ba743`.
+It is inserted before package and library preloads and does not enter the
+served TeX Live member set.
+The preload declaration executes in file order. Immediately after pgfplots,
+it inlines closure/fmt-pgfplots-hint.tex, 119 bytes, SHA-256
+`515dd1db2d5a1981f01a52903d09979980be213f94487e6557d515bfebc3d3a5`,
+to make the compatibility version hint opt-in. This setting does not select
+a different compatibility level or change the rendered figures.
+
+The closure is the union of 765 listed names and 788 selected font files.
+Its generated map contains 403 records in 23,817 bytes. Font coverage is
+checked from the actual packed files, including the 236-metric, 92-outline,
+eight-encoding Latin Modern subset.
+
+The 68-case corpus gate passes with its declared success, failure and
+limitation expectations, alongside the fixed error and warm-worker cases.
+The current format preserves every successful SVG from the preceding format:
+64 byte-identical outputs, including four declared limitations. Its 354 stock
+input paths, sizes and hashes are unchanged. The compatibility hint and its
+related notification are removed from logs; remaining differences are only
+whitespace and TeX line folding.
+
+Earlier browser verification used the preceding format with SHA-256
+`d73e0111e940f7c63fc54806d3ff7bbf6a0fc8b9dd3a7381b29370b64488f915`
+and the same worker, converter and closure. Thirty unchanged-source figures
+were byte-identical to the earlier engine. Chromium and WebKit each passed
+the 27-case comparison and 15 representative new cases, with actual
+PDF/log/SVG/metadata checks repeated offline. The 25 shared successful browser
+figures were byte-identical; rejected identity, expectation and damaged-output
+controls verified that those checks can fail.
+
+### Two-checkout verification
+
+Two clean checkouts of source commit `12a62080e211f95deb176972e1e05e106aa55176` rebuilt the
+worker, format, closure, manifest and TeX source distribution with the pinned
+offline builder. Their container checkout paths and Emscripten caches were
+distinct. Both caches rebuilt port and system libraries from verified pinned
+sources without copying compiled objects. The first checkout's existing build
+was reused for a fresh complete gate run; the second rebuilt all assets from
+its independent sources and cache.
+
+| Container checkout | Offline build (s) | Release gates (s) | All generated release files |
+|---|---:|---:|---|
+| /src/texkit-swiftlatex | 316.864 | 173.075 | Byte-identical |
+| /work/pathcheck/texkit | 313.426 | 175.211 | Byte-identical |
+
+Both checkouts passed all ten release gates and the filtered source privacy
+check, including artifact identity, format double-build agreement, the three
+compatibility hint cases, all 44 redirect declarations, the 1,416-member
+closure without preloaded kernel font definitions, 64 protocol cases, result
+checker controls, the complete 68-case corpus, source coverage, licensing and
+the 50 MiB runtime budget. All seven generated files were directly compared
+byte for byte: four runtime assets, engine manifest, source archive and source
+identity. The worker, converter and closure also match the preceding build.
+The 354 format input names and order, stock paths, sizes and hashes remain
+unchanged at both paths.
+
+The recorded closure size and SHA-256 match the closure reproducibility
+workflow. The generated manifest is committed as release/engine-manifest.json;
+its SHA-256 is `00419da810523c749a82dc0665e8750b898969779a3ae7b14e6e583ef2850b30`.
+CI execution and comparison of its outputs with these files remain unverified.
+
+## TeX source distribution
+
+`tex-sources.tar.gz` is a separate source distribution. It is not an engine
+runtime asset and is not included in the four-asset fingerprint or downloaded
+by the plugin. `release/tex-sources.json` is a JSON object with `name` (the
+literal filename `tex-sources.tar.gz`), `bytes` (the compressed byte count)
+and `sha256` (64 lowercase hexadecimal characters). The workflow checks this
+identity before uploading, publishing and verifying public downloads.
+
+`closure/tex-source-policy.json` fixes the stock format input paths, sizes and
+SHA-256 hashes, and names the original package containers to include. The
+frozen TeX Live package database supplies each container's revision, byte
+count and SHA-512. Sources are fetched and verified during the online phase;
+staging, packing, format-input coverage and documented-source checks run in
+the offline builder. The package contains `tex-sources-manifest.json` with
+schema version 1, the frozen database SHA-256 and a `files` array. Each payload
+record contains `path`, `bytes` and `sha256`; official archive records also
+contain `package`, `revision`, `kind` and `sha512`. The manifest excludes
+itself from its payload inventory. Format paths are relative to the TeX Live
+installation root, and original containers live under `archives/`.
+
+The outer tar uses sorted paths, ustar format, epoch timestamps, numeric
+owner/group zero and normalized permissions. `gzip -n` suppresses timestamps
+and original filenames. Nested official `.tar.xz` containers retain their
+original bytes and metadata, and the artifact scanner inspects their decoded
+content for machine identity. The engine manifest structure, asset order and
+fingerprint algorithm remain unchanged.
+
+The compressed source distribution is **31,413,632 B**, SHA-256
+`fa6613da5a9fd8338ecdb88cd69a4e8dcf59a0dea6456b6e3002da00e48c70b6`. Its 517 payload files comprise 354 stock format inputs,
+123 runtime archives, 36 source archives and four documentation archives,
+plus the internal manifest. Documentation is included only for algorithms,
+endfloat, Latin Modern and mhchem to carry their required license, file list
+or explanatory material. Offline coverage verifies all 354 format inputs and
+163 official archive SHA-512 values, as well as all 44 documented docstrip
+inputs, 156 source references and 128 distinct source members.

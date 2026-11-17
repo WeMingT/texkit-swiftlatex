@@ -1,0 +1,313 @@
+{
+  "cases": {
+    "01-baseline": {
+      "expect": "success"
+    },
+    "02-arrows-meta": {
+      "expect": "success"
+    },
+    "03-positioning": {
+      "expect": "success"
+    },
+    "04-calc": {
+      "expect": "success"
+    },
+    "05-patterns": {
+      "expect": "success"
+    },
+    "06-shapes-geometric": {
+      "expect": "success"
+    },
+    "07-decorations-pathmorphing": {
+      "expect": "success"
+    },
+    "08-matrix": {
+      "expect": "success"
+    },
+    "09-amsmath": {
+      "expect": "success"
+    },
+    "10-pgfplots": {
+      "expect": "success"
+    },
+    "11-mathpazo": {
+      "expect": "success"
+    },
+    "12-xcolor": {
+      "expect": "success"
+    },
+    "13-foreach": {
+      "expect": "success"
+    },
+    "14-circuitikz-basic": {
+      "expect": "success"
+    },
+    "15-circuitikz-siunitx": {
+      "expect": "success"
+    },
+    "16-chemfig": {
+      "expect": "success",
+      "allowRerunWarnings": [
+        {
+          "pattern": "^LaTeX Warning: Label\\(s\\) may have changed\\. Rerun to get cross-references right\\.$",
+          "reason": "The isolated chemfig molecule enables remember picture and writes a PGF position marker. It has no cross-picture position consumer or user reference; the complete frozen TeX Live emits this same generic notice in one pass."
+        }
+      ]
+    },
+    "17-tikz-cd": {
+      "expect": "success"
+    },
+    "18-tikz-3dplot": {
+      "expect": "success"
+    },
+    "19-tikz-feynhand": {
+      "expect": "success"
+    },
+    "20-quantikz": {
+      "expect": "success"
+    },
+    "21-tkz-euclide": {
+      "expect": "success"
+    },
+    "22-tkz-fct": {
+      "expect": "success"
+    },
+    "23-tkz-tab": {
+      "expect": "success"
+    },
+    "24-tikzlings": {
+      "expect": "success"
+    },
+    "25-fonts-five": {
+      "expect": "success",
+      "allowWarnings": [
+        {
+          "pattern": "^LaTeX Font Warning: Font shape `OT1/cmr/m/up' undefined$",
+          "reason": "The complete pinned TeX Live emits this same Euler upright-shape substitution for this source and embeds its Euler Roman, Fraktur and Script faces. It does not indicate a missing shipped font."
+        },
+        {
+          "pattern": "^LaTeX Font Warning: Some font shapes were not available, defaults substituted\\.$",
+          "reason": "The complete pinned TeX Live emits this summary after the documented Euler upright-shape warning for this case; every other font-shape warning remains checked."
+        }
+      ]
+    },
+    "26-pgfplots-libs": {
+      "expect": "success"
+    },
+    "27-tier-a-spotcheck": {
+      "expect": "success"
+    },
+    "28-catcode-parity": {
+      "expect": "success"
+    },
+    "28-option-clash": {
+      "expect": "success"
+    },
+    "29-bfseries-tabular": {
+      "expect": "success"
+    },
+    "30-pazo-bb": {
+      "expect": "success",
+      "fonts": {
+        "require": [
+          "^PazoMathBlackboardBold$"
+        ]
+      }
+    },
+    "31-pazo-sc": {
+      "expect": "success",
+      "fonts": {
+        "require": [
+          "(?i)(Palladio.*SC|Pazo.*SC)"
+        ]
+      }
+    },
+    "32-pazo-euro": {
+      "expect": "success"
+    },
+    "33-ts1-text": {
+      "expect": "success",
+      "fonts": {
+        "require": [
+          "^LM"
+        ]
+      }
+    },
+    "34-ts1-sizes": {
+      "expect": "success",
+      "fonts": {
+        "require": [
+          "^LM"
+        ]
+      }
+    },
+    "35-siunitx-micro": {
+      "expect": "success",
+      "fonts": {
+        "require": [
+          "^LM"
+        ]
+      }
+    },
+    "36-fontenc-t1": {
+      "expect": "success",
+      "fonts": {
+        "require": [
+          "^LM",
+          "^CM"
+        ]
+      }
+    },
+    "37-inputenc-utf8": {
+      "expect": "success"
+    },
+    "38-lmodern-first": {
+      "expect": "success",
+      "fonts": {
+        "require": [
+          "^LM"
+        ],
+        "forbid": [
+          "^CM"
+        ]
+      }
+    },
+    "39-lmodern-last": {
+      "expect": "success",
+      "fonts": {
+        "require": [
+          "^LM"
+        ],
+        "forbid": [
+          "^CM"
+        ]
+      }
+    },
+    "40-circuitikz-styles": {
+      "expect": "success"
+    },
+    "41-bm": {
+      "expect": "success"
+    },
+    "42-booktabs": {
+      "expect": "success"
+    },
+    "43-multirow": {
+      "expect": "success"
+    },
+    "44-makecell": {
+      "expect": "success"
+    },
+    "45-tabularx": {
+      "expect": "success"
+    },
+    "46-dcolumn": {
+      "expect": "success"
+    },
+    "47-hhline": {
+      "expect": "success"
+    },
+    "48-bigstrut": {
+      "expect": "success"
+    },
+    "49-bigdelim": {
+      "expect": "success"
+    },
+    "50-forest": {
+      "expect": "success"
+    },
+    "51-mhchem": {
+      "expect": "success"
+    },
+    "52-braket": {
+      "expect": "success"
+    },
+    "53-cancel": {
+      "expect": "failure",
+      "logPattern": "File `cancel\\.sty' not found"
+    },
+    "54-algpseudocode": {
+      "expect": "success"
+    },
+    "55-algorithm-algpseudocode": {
+      "expect": "success"
+    },
+    "56-algorithm2e": {
+      "expect": "success"
+    },
+    "60-unsupported-clickable": {
+      "expect": "failure",
+      "logPattern": "!\\ LaTeX\\ Error:\\ File\\ `insdljs\\.sty'\\ not\\ found\\."
+    },
+    "61-unsupported-graphdrawing": {
+      "expect": "failure",
+      "logPattern": "!\\ Package\\ tikz\\ Error:\\ I\\ did\\ not\\ find\\ the\\ tikz\\ library\\ 'graphdrawing'\\.\\ I\\ looked\\ "
+    },
+    "62-unsupported-externalize": {
+      "expect": "failure",
+      "logPattern": "!\\ Package\\ tikz\\ Error:\\ Sorry,\\ the\\ system\\ call\\ 'pdflatex\\ \\-halt\\-on\\-error\\ \\-interact"
+    },
+    "70-limit-ref": {
+      "expect": "limitation",
+      "reasons": [
+        "rerun-requested",
+        "unresolved-reference"
+      ]
+    },
+    "71-limit-legend-ref": {
+      "expect": "limitation",
+      "reasons": [
+        "rerun-requested",
+        "unresolved-reference"
+      ]
+    },
+    "72-limit-two-pages": {
+      "expect": "limitation",
+      "reasons": [
+        "page-count",
+        "svg-pageset"
+      ]
+    },
+    "73-limit-t1-cmdh": {
+      "expect": "limitation",
+      "reasons": [
+        "font-substitution"
+      ],
+      "fonts": {
+        "require": [
+          "^LM"
+        ]
+      }
+    },
+    "font-matrix-lm.generated": {
+      "expect": "success"
+    },
+    "font-matrix-nfss.generated": {
+      "expect": "success",
+      "fonts": {
+        "require": [
+          "^LM"
+        ],
+        "forbid": [
+          "^(?!LM)"
+        ]
+      },
+      "allowWarnings": [
+        {
+          "pattern": "^LaTeX Font Warning: Font shape `T1/cmr/(bx/(sc|scsl)|b/scsl)'",
+          "reason": "These three shapes have the same Latin Modern fallback as a complete TeX Live with lmodern: bold small caps and bold slanted small caps use the declared upright bold face."
+        },
+        {
+          "pattern": "^LaTeX Font Warning: Font shape `T1/cmss/m/sc' in size <(?:5|7|8|9|10|12|14\\.4|17\\.28|20\\.74|24\\.88)> not available$",
+          "reason": "The pinned kernel already substitutes serif small caps for sans-serif small caps. The complete TeX Live produces this same warning at every tested size for these identical matrix cells; the declared target is retained in Latin Modern."
+        }
+      ]
+    },
+    "font-matrix-palatino.generated": {
+      "expect": "success"
+    },
+    "font-matrix.generated": {
+      "expect": "success"
+    }
+  }
+}

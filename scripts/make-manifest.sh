@@ -1,80 +1,89 @@
 #!/usr/bin/env bash
-# Generate build/engine-manifest.json for the swiftpdftex-v1 engine release.
-#
-# Inputs — the four release assets (release name = what the plugin-side
-# engine manifest downloader expects):
-#   build/swiftlatexpdftex.worker.js            (ship worker, web,worker)
-#   build/swiftlatexpdftex.fmt                  (TL2025 format dump)
-#   build/out/pdftocairo.stripped.js  ->  name "pdftocairo.js" (single-file,
-#                                          wasm embedded)
-#   build/texfiles.tar.gz                       (TL2025 file closure pack)
-#
-# Fingerprint recipe (fixed forever, recomputable from this file):
-#   1. take the hex sha256 of each asset, in the assets array order above
-#      (lowercase hex, no separators)
-#   2. concat  = h(worker) + h(fmt) + h(pdftocairo) + h(texfiles)
-#   3. fingerprint = sha256( concat + "2025" )
-#      where "2025" is the TeX Live baseline string (toolchain.lock.json
-#      "texlive": "2025")
-#
-# Output shape is isomorphic to the plugin-side manifest
-# (src/engine/swift/engine-manifest.json in obsidian-texkit):
-#   { engineVersion, fingerprint, baseUrl, assets: [ {name, sha256, bytes} x4 ] }
-#
-# build/engine-manifest.json is a generated artifact (gitignored); its asset
-# hashes are recorded in docs/determinism.md and the file itself ships as a
-# release attachment (scripts/publish.sh).
+# Generate the ordered four-asset manifest, or test its validation offline.
 set -euo pipefail
-
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-OUT=$ROOT/build/engine-manifest.json
+export ENGINE_VERSION=${ENGINE_VERSION:-swiftpdftex-v2}
+export RELEASE_TAG=${RELEASE_TAG:-engine-v2}
+python3 - "$ROOT" "$@" <<'PY'
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import sys
+import tempfile
 
-ENGINE_VERSION=swiftpdftex-v1
-BASEURL=https://github.com/WeMingT/texkit-swiftlatex/releases/download/engine-v1/
-TL_BASELINE=2025
+ROOT = Path(sys.argv[1])
+NAMES = ("swiftlatexpdftex.worker.js", "swiftlatexpdftex.fmt", "pdftocairo.js", "texfiles.tar.gz")
+BUDGET = 52428800
 
-# (release name, repo path) — array order == assets order == fingerprint order
-ASSETS=(
-  "swiftlatexpdftex.worker.js|$ROOT/build/swiftlatexpdftex.worker.js"
-  "swiftlatexpdftex.fmt|$ROOT/build/swiftlatexpdftex.fmt"
-  "pdftocairo.js|$ROOT/build/out/pdftocairo.stripped.js"
-  "texfiles.tar.gz|$ROOT/build/texfiles.tar.gz"
-)
 
-concat=
-json_assets=
-for entry in "${ASSETS[@]}"; do
-  name=${entry%%|*}
-  path=${entry#*|}
-  if [ ! -f "$path" ]; then
-    echo "error: asset missing: $path" >&2
-    exit 1
-  fi
-  h=$(sha256sum "$path" | cut -d' ' -f1)
-  b=$(stat -c%s "$path")
-  concat+=$h
-  json_assets+="\t\t{\n\t\t\t\"name\": \"$name\",\n\t\t\t\"sha256\": \"$h\",\n\t\t\t\"bytes\": $b\n\t\t},\n"
-  printf '[manifest] %-28s %s  %s B\n' "$name" "$h" "$b"
-done
+def manifest(directory, names=NAMES):
+    if tuple(names) != NAMES:
+        raise ValueError("asset order does not match the fingerprint contract")
+    sizes = [(directory / name).stat().st_size for name in names]
+    if any(size == 0 for size in sizes):
+        raise ValueError("assets must be nonempty")
+    if sum(sizes) > BUDGET:
+        raise ValueError("four-asset size budget exceeded")
+    assets = [{"name": name, "sha256": hashlib.sha256((directory / name).read_bytes()).hexdigest(), "bytes": size}
+              for name, size in zip(names, sizes)]
+    fingerprint = hashlib.sha256(("".join(a["sha256"] for a in assets) + "2025").encode()).hexdigest()
+    return {"engineVersion": os.environ["ENGINE_VERSION"], "fingerprint": fingerprint,
+            "baseUrl": "https://github.com/WeMingT/texkit-swiftlatex/releases/download/" + os.environ["RELEASE_TAG"] + "/",
+            "assets": assets}
 
-# strip the trailing comma+newline of the last asset entry
-json_assets=${json_assets%,\\n}
-json_assets+='\n'
 
-fingerprint=$(printf '%s%s' "$concat" "$TL_BASELINE" | sha256sum | cut -d' ' -f1)
+def self_test():
+    (ROOT / "build").mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix="manifest-test-", dir=ROOT / "build") as temporary:
+        directory = Path(temporary)
+        for name, data in zip(NAMES, (b"worker", b"format", b"converter", b"closure")):
+            (directory / name).write_bytes(data)
+        result = manifest(directory)
+        assert result["fingerprint"] == "8c8810f0d738509b7cf3a2ee87a9c1df4bd2bce3d70a64bdad1b608b7be6bec0"
+        print("PASS fixed fingerprint")
 
-printf '[manifest] fingerprint = sha256("%s%s") = %s\n' \
-  "$concat" "$TL_BASELINE" "$fingerprint"
+        def rejected(label, operation):
+            try:
+                operation()
+            except (OSError, ValueError):
+                print("PASS " + label)
+                return
+            raise AssertionError(label + " was accepted")
 
-{
-  printf '{\n'
-  printf '\t"engineVersion": "%s",\n' "$ENGINE_VERSION"
-  printf '\t"fingerprint": "%s",\n' "$fingerprint"
-  printf '\t"baseUrl": "%s",\n' "$BASEURL"
-  printf '\t"assets": [\n'
-  printf '%b' "$json_assets"
-  printf '\t]\n'
-  printf '}\n'
-} > "$OUT"
+        (directory / NAMES[-1]).unlink()
+        rejected("missing asset", lambda: manifest(directory))
+        (directory / NAMES[-1]).write_bytes(b"closure")
+        rejected("incorrect order", lambda: manifest(directory, tuple(reversed(NAMES))))
+        with (directory / NAMES[0]).open("wb") as asset:
+            asset.truncate(BUDGET + 1)
+        rejected("size budget", lambda: manifest(directory))
 
-echo "[manifest] wrote $OUT"
+
+def main():
+    if sys.argv[2:] == ["--self-test"]:
+        self_test()
+        return
+    if sys.argv[2:]:
+        raise ValueError("usage: make-manifest.sh [--self-test]")
+    directory = ROOT / "build" / "engine-v2"
+    directory.mkdir(parents=True, exist_ok=True)
+    converter = ROOT / "src" / "engine-v1" / "pdftocairo.js"
+    pinned = json.loads((ROOT / "toolchain.lock.json").read_text())["engineV1Assets"]["pdftocairo.js"]
+    if converter.stat().st_size != pinned["bytes"] or hashlib.sha256(converter.read_bytes()).hexdigest() != pinned["sha256"]:
+        raise ValueError("pdftocairo does not match the pinned input")
+    shutil.copyfile(converter, directory / "pdftocairo.js")
+    shutil.copyfile(ROOT / "build" / "texfiles.tar.gz", directory / "texfiles.tar.gz")
+    result = manifest(directory)
+    output = directory / "engine-manifest.json"
+    output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(result, indent=2))
+
+
+try:
+    main()
+except (OSError, ValueError, AssertionError) as error:
+    print("manifest: " + str(error), file=sys.stderr)
+    sys.exit(1)
+PY

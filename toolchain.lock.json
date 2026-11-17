@@ -9,5 +9,22 @@
   "pixmanCommit": "37216a32839f59e8dcaa4c3951b3fcfc3f07852c",
   "fontconfigVersion": "2.15.0",
   "fontconfigTarballSha256": "f5f359d6332861bd497570848fcb42520964a9e83d5e3abe397b6b6db9bcaaf4",
-  "pangoCairoWasmCommit": "6c4777c58264d1e9b6ea56de493eba1a33cce9ef"
+  "pangoCairoWasmCommit": "6c4777c58264d1e9b6ea56de493eba1a33cce9ef",
+  "builderTexliveImage": "texlive/texlive@sha256:f25ee2dcd00f58198f918064f4a1c8562410b33e84155bd55b02b419d73d9391",
+  "builderEmsdkImage": "emscripten/emsdk@sha256:8714ed3a9fb585e662c931259a996bac36a57a8dd34b81e8277436fd77364475",
+  "engineV1Fingerprint": "b853f8c70b4197ee83f86946497b1d4f9cbf7dce583c83e043fbcab0950ba519",
+  "engineV1Assets": {
+    "texfiles.tar.gz": {
+      "sha256": "246c5df8aca5450462b79503ccec691abafb12a89a1e946866491d447742836d",
+      "bytes": 6807706
+    },
+    "pdftocairo.js": {
+      "sha256": "3d5a1d4e4da59d45478451ef2c2e4fc5e519b6c9872187ddcd98358f796a26c3",
+      "bytes": 5630761
+    },
+    "engine-manifest.json": {
+      "sha256": "79191e3d4728c56bca32c1da01ded9637821001ac3c15bfbbe6974e1b193bc97",
+      "bytes": 803
+    }
+  }
 }

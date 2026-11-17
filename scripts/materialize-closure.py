@@ -45,6 +45,7 @@ import pathlib
 import shutil
 import subprocess
 import sys
+from font_whitelist import read_entries, selected_files
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 # S1 closure name list — committed snapshot derived by scripts/derive-closure.py.
@@ -74,25 +75,14 @@ def stage_font_whitelist(staging):
     ambiguous too). Returns the set of staged font basenames — the count
     gate needs the names (union semantics), not a count: the closure name
     list already carries ~99 font files of its own."""
-    dirs = []
-    for line in FONT_WHITELIST.read_text(encoding="utf-8").splitlines():
-        entry = line.split("#", 1)[0].strip()
-        if entry:
-            dirs.append(entry)
-    if not dirs:
-        sys.exit("font whitelist is empty — expected at least the cm font directories")
     seen = {}
-    for rel in dirs:
-        directory = TEXMF_DIST / rel
-        if not directory.is_dir():
-            sys.exit(f"font whitelist directory missing in TL2025: {directory}")
-        for suffix in ("*.pfb", "*.tfm", "*.vf"):
-            for path in sorted(directory.glob(suffix)):
-                if path.name in seen:
-                    sys.exit(f"duplicate font basename {path.name!r} "
-                             f"({seen[path.name]} and {path})")
-                seen[path.name] = path
-                shutil.copy2(path, staging / path.name)
+    for entry in read_entries(FONT_WHITELIST):
+        for path in selected_files(TEXMF_DIST, entry):
+            if path.name in seen:
+                sys.exit(f"duplicate font basename {path.name!r} "
+                         f"({seen[path.name]} and {path})")
+            seen[path.name] = path
+            shutil.copy2(path, staging / path.name)
     print(f"[fonts] whitelisted font files staged: {len(seen)}")
     return set(seen)
 

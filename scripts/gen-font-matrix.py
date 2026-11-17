@@ -27,9 +27,8 @@ Activation strategy:
   exercised at shipout). The stock document cannot exercise that face
   while preserving the cm optical-size sweep, so Palatino math gets its
   own document with the kernel symbol face and bold math — the exact
-  chain the spike probe missed (letters only). amssymb loads AFTER
-  mathpazo so \\mathbb stays msbm: fplmbb's .fd is not in the closure
-  (known limitation, see release notes).
+  chain the simple letters-only probe missed. Its blackboard alphabet
+  uses the Pazo face supplied by mathpazo.
 - Full standalone documents (corpus form — see 17-tikz-cd.tex).
 
 Run: python3 scripts/gen-font-matrix.py [output-dir]
@@ -37,6 +36,9 @@ Run: python3 scripts/gen-font-matrix.py [output-dir]
 import os
 import pathlib
 import sys
+import struct
+import re
+from font_whitelist import read_entries, selected_files
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 FONT_WHITELIST = pathlib.Path(os.environ.get(
@@ -58,21 +60,22 @@ MATH_ROW = (r"$X_{a^{b}}^{c_{d}}\times Y_{Z}^{W}$ "
             r"$\mathscr{X}^{a}$ $\mathfrak{Y}_{b}$ $\mathbb{Z}$ "
             r"$\mathrm{m}\,\mathbf{b}\,\mathit{i}\,\mathsf{s}\,"
             r"\mathtt{t}\,\mathcal{C}$")
-# Kernel math-symbol face under mathpazo — The slots the spike probe
-# skipped. \mathbb deliberately absent (would route to U/fplmbb, whose
-# .fd is not in the closure); amssymb-after-mathpazo keeps \mathbb on
-# msbm instead. Bold segment hits the zplmb* shapes.
+# Kernel math symbols and the Pazo blackboard face under mathpazo.
+# The bold segment hits the zplmb* shapes.
 PALATINO_ROW = (r"$X_{a^{b}}^{c_{d}}\times Y \le Z \in W \ge V \ne U$ "
                 r"$\to \leftarrow \pm \mp \approx \equiv \sim$ "
                 r"$\sum_{i=1}^{n} a_{i} \prod_{j} b_{j} \int_{0}^{1} dx$ "
                 r"$\sqrt{x+1} \left(\frac{a}{b}\right) \bigcup S$ "
                 r"$\forall \exists \infty \partial \wedge \vee \cup \cap$ "
                 r"$\mathcal{C}^{D}$ "
+                r"$\mathbb{R}$ "
                 r"{\boldmath $X_{a}^{b} \times \le \in \sum$} "
                 r"\textsc{Small Caps} \textsl{slant} \textbf{b} "
                 r"\textit{i} \textbf{\textit{bi}}")
 PREAMBLE_PKGS = ["amssymb", "mathrsfs", "eufrak"]
-PALATINO_PKGS = ["mathpazo", "amssymb"]
+PALATINO_PKGS = ["mathpazo"]
+NFSS_SIZES = ["tiny", "scriptsize", "footnotesize", "small", "normalsize",
+              "large", "Large", "LARGE", "huge", "Huge"]
 
 
 def csname(index):
@@ -108,17 +111,18 @@ def map_pfb_refs():
 
 def collect():
     tfm_names, pfb_names, vf_names = set(), set(), set()
-    for line in FONT_WHITELIST.read_text(encoding="utf-8").splitlines():
-        rel = line.split("#", 1)[0].strip()
-        if not rel:
-            continue
-        directory = TEXMF_DIST / rel
-        if not directory.is_dir():
-            sys.exit(f"font whitelist directory missing: {directory}")
-        for suffix, sink in ((".pfb", pfb_names), (".tfm", tfm_names),
-                             (".vf", vf_names)):
-            for path in directory.glob("*" + suffix):
+    tfm_paths = {}
+    for entry in read_entries(FONT_WHITELIST):
+        for path in selected_files(TEXMF_DIST, entry):
+            for suffix, sink in ((".pfb", pfb_names), (".tfm", tfm_names),
+                                 (".vf", vf_names)):
+                if path.suffix != suffix:
+                    continue
                 sink.add(path.name)
+                if suffix == ".tfm":
+                    if path.name in tfm_paths:
+                        sys.exit(f"duplicate metric basename: {path.name}")
+                    tfm_paths[path.name] = path
 
     mapped = map_pfb_refs()
     orphan_pfb = sorted(n for n in pfb_names if n not in mapped)
@@ -129,7 +133,27 @@ def collect():
         # is not whitelisted can never be requested
         sys.exit(f"pfb/vf unreachable in whitelist (config bug): "
                  f"{orphan_pfb[:5] + orphan_vf[:5]}")
-    return tfm_names
+    return tfm_paths
+
+
+def sample_text(path):
+    """Use only characters with a nonzero TFM char-info width index."""
+    data = path.read_bytes()
+    if len(data) < 24:
+        raise ValueError(f"truncated TFM: {path.name}")
+    lf, lh, bc, ec, nw, *_ = struct.unpack(">12H", data[:24])
+    offset = 24 + 4 * lh
+    if len(data) != 4 * lf or bc > ec or ec > 255 or not nw or offset + 4 * (ec - bc + 1) > len(data):
+        raise ValueError(f"invalid TFM character table: {path.name}")
+    present = {code for code in range(bc, ec + 1)
+               if data[offset + 4 * (code - bc)] != 0}
+    if not present:
+        raise ValueError(f"TFM has no characters: {path.name}")
+    sample = "".join(char for char in "Quick brown fox 0OIl"
+                     if char == " " or ord(char) in present)
+    if not sample.strip():
+        sample = " ".join(r"\char%d" % code for code in sorted(present)[:8])
+    return sample
 
 
 STOCK_PURPOSE = ("Font-matrix acceptance: every whitelist .tfm activated via a\n"
@@ -159,13 +183,15 @@ def document(pkgs, decls, rows, purpose):
 
 
 def main():
-    tfm_names = collect()
+    tfm_paths = collect()
+    tfm_names = {name for name, path in tfm_paths.items() if path.parent.name != "lm"}
+    lm_names = set(tfm_paths) - tfm_names
 
     decls, rows = [], []
     for i, name in enumerate(sorted(tfm_names)):
         cs = csname(i)
         decls.append(r"\font\%s=%s at 10.5pt %% %s" % (cs, name[:-4], name))
-        rows.append(r"{\%s Quick brown fox 0OIl} \\ %% %s" % (cs, name))
+        rows.append(r"{\%s %s} \\ %% %s" % (cs, sample_text(tfm_paths[name]), name))
     for size in SIZE_SWEEP:
         rows.append(r"\%s %s \\" % (size, MATH_ROW))
     (OUT_DIR / "font-matrix.generated.tex").write_text(
@@ -183,6 +209,30 @@ def main():
     print(f"[font-matrix] palatino face document "
           f"({len(SIZE_SWEEP)} rows) -> "
           f"{OUT_DIR / 'font-matrix-palatino.generated.tex'}")
+    lm_decls, lm_rows = [], []
+    for i, name in enumerate(sorted(lm_names)):
+        cs = csname(i)
+        lm_decls.append(r"\font\%s=%s at 10.5pt %% %s" % (cs, name[:-4], name))
+        lm_rows.append(r"{\%s %s} \\ %% %s" % (cs, sample_text(tfm_paths[name]), name))
+    (OUT_DIR / "font-matrix-lm.generated.tex").write_text(
+        document([], "".join(d + "\n" for d in lm_decls), lm_rows,
+                 "Latin Modern retained metrics: every optical size activated.\n"),
+        encoding="utf-8")
+    print(f"[font-matrix] Latin Modern: {len(lm_decls)} font rows")
+    redirect = (ROOT / "closure/fmt-font-redirect.tex").read_text()
+    shapes = re.findall(r"\\DeclareFontShape\{([^}]+)\}\{([^}]+)\}\{([^}]+)\}\{([^}]+)\}", redirect)
+    if len(shapes) != 44 or len(set(shapes)) != 44:
+        sys.exit("redirect must declare exactly 44 distinct NFSS shapes")
+    nfss_rows = []
+    for enc, family, series, shape in shapes:
+        for size in NFSS_SIZES:
+            nfss_rows.append(r"{\%s\fontencoding{%s}\fontfamily{%s}\fontseries{%s}"
+                             r"\fontshape{%s}\selectfont\char36} \\" %
+                             (size, enc, family, series, shape))
+    (OUT_DIR / "font-matrix-nfss.generated.tex").write_text(
+        document([], "", nfss_rows, "Text encodings and families: every declared shape at ten sizes.\n"),
+        encoding="utf-8")
+    print(f"[font-matrix] NFSS: {len(nfss_rows)} cells")
 
 
 if __name__ == "__main__":

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Build build/swiftlatexpdftex.fmt from the local TeX Live 2025 corpus by
+# Build build/engine-v2/swiftlatexpdftex.fmt from TeX Live 2025 by
 # driving the worker's compileformat path (iniTeX *pdflatex.ini -> latex.ltx
 # -> \dump). build-fmt.mjs is the driver; this shell adds the determinism gate:
 #
-#   1. two independent pinned builds into build/fmt-out/
+#   1. two independent pinned builds into build/engine-v2/fmt-out/
 #   2. byte-compare gate (sha256) — any difference fails the build
-#   3. install run 1 as build/swiftlatexpdftex.fmt
+#   3. install run 1 and its complete metadata
 #
 # Determinism: storefmtfile() embeds \year/\month/\day in the format banner
 # and the eqtb dump carries \time/\day/\month/\year, so an unpinned build
@@ -19,8 +19,8 @@
 set -euo pipefail
 
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-OUT=$ROOT/build/fmt-out
-FMT=$ROOT/build/swiftlatexpdftex.fmt
+OUT=$ROOT/build/engine-v2/fmt-out
+FMT=$ROOT/build/engine-v2/swiftlatexpdftex.fmt
 PIN=2025.11.1.0   # \year=2025 \month=11 \day=1 \time=0
 
 mkdir -p "$OUT"
@@ -36,6 +36,8 @@ if [ "$h1" != "$h2" ]; then
   echo "[fmt] DETERMINISM GATE FAILED: double-build hashes differ" >&2
   exit 1
 fi
+cmp "$OUT/fmt-run1.fmt" "$OUT/fmt-run2.fmt"
 cp "$OUT/fmt-run1.fmt" "$FMT"
+cp "$OUT/fmt-run1.meta.json" "$FMT.meta.json"
 echo "[fmt] deterministic -> $FMT ($(stat -c%s "$FMT") bytes)"
 ls -la "$FMT"

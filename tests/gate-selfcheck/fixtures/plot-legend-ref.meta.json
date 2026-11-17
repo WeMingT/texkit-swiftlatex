@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "status": 0,
+  "resultStatus": "ok",
+  "pdfBytes": 28301,
+  "sourceSha256": "85a6370582b0e90d7ec2f40b2abee627a13b4d49e91d594a5bd25fb1fb830523",
+  "assets": [
+    {
+      "name": "swiftlatexpdftex.worker.js",
+      "bytes": 2080266,
+      "sha256": "7bd90f2e76eb19171f2ca63b222114eb66c55a2ff81cbe36e4c1d5e7eb85df46"
+    },
+    {
+      "name": "swiftlatexpdftex.fmt",
+      "bytes": 22615063,
+      "sha256": "0742df02f4a5d25e74d27070b9b846d9f3f6efa0f43e262a58d174eddeb9d3ec"
+    },
+    {
+      "name": "pdftocairo.js",
+      "bytes": 5630761,
+      "sha256": "3d5a1d4e4da59d45478451ef2c2e4fc5e519b6c9872187ddcd98358f796a26c3"
+    },
+    {
+      "name": "texfiles.tar.gz",
+      "bytes": 6315611,
+      "sha256": "18a2f252078306d3e311ae7c34224e9fc6459c4e4691f9f70d875230c529fc1c"
+    }
+  ],
+  "svgConversion": "ok"
+}

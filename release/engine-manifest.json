@@ -1,0 +1,27 @@
+{
+  "engineVersion": "swiftpdftex-v2",
+  "fingerprint": "c02bd902278033b5b4f976f4845bf2eaa9b45351e4541cd1c507d9508cffbad6",
+  "baseUrl": "https://github.com/WeMingT/texkit-swiftlatex/releases/download/engine-v2/",
+  "assets": [
+    {
+      "name": "swiftlatexpdftex.worker.js",
+      "sha256": "7bd90f2e76eb19171f2ca63b222114eb66c55a2ff81cbe36e4c1d5e7eb85df46",
+      "bytes": 2080266
+    },
+    {
+      "name": "swiftlatexpdftex.fmt",
+      "sha256": "1972b46331c9d39a7a3db852367a134dbc214b1a5c718904abb1ba3263d0e451",
+      "bytes": 22616021
+    },
+    {
+      "name": "pdftocairo.js",
+      "sha256": "3d5a1d4e4da59d45478451ef2c2e4fc5e519b6c9872187ddcd98358f796a26c3",
+      "bytes": 5630761
+    },
+    {
+      "name": "texfiles.tar.gz",
+      "sha256": "f45cde7d3c05032b1dfb3d84627006dc4d4bce38a4e3d0cbd4bd7d36315f8efc",
+      "bytes": 15664679
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (SwiftLaTeX PDFTeX 0.3.0) (preloaded format=swiftlatexpdftex)
+entering extended mode
+(main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(/tex/standalone.cls
+Document Class: standalone 2025/02/22 v1.5a Class to compile TeX sub-files stan
+dalone
+(/tex/shellesc.sty
+
+Package shellesc Warning: Shell escape disabled on input line 73.
+
+) (/tex/ifluatex.sty (/tex/iftex.sty)) (/tex/xkeyval.sty (/tex/xkeyval.tex
+(/tex/xkvutils.tex))) (/tex/standalone.cfg) (/tex/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/tex/size10.clo))) (/tex/chemfig.sty (/tex/chemfig.tex (/tex/simplekv.tex)
+(/tex/pgflibraryarrows.meta.code.tex))) (/tex/l3backend-pdftex.def)
+No file main.aux.
+(/tex/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/tex/epstopdf-base.sty (/tex/epstopdf-sys.cfg))
+
+Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
+ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
+your preamble.
+ on input line 4.
+
+
+[1
+Non-PDF special ignored!
+<special> papersize=91.19461pt,66.8334pt
+{/tex/pdftex.map}] (main.aux)
+
+
+ )</tex/cmr10.pfb></tex/cmr7.pfb>
+Output written on main.pdf (1 page, 19843 bytes).
+Transcript written on main.log.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: Reference `missing' on page 1 undefined on input line 9.

@@ -74,15 +74,31 @@ verify_pin() { # verify_pin <name> <pin>
 fetch_git() { # fetch_git <name> <url> <pin> [clone-args...]
   local name=$1 url=$2 pin=$3
   shift 3
-  if tree_at_pin "$name" "$pin"; then return 0; fi
-  echo "[fetch] $name @ $pin  $url"
-  git clone "$@" "$url" "$SRC/$name"
-  # A depth-1 clone of the default branch does not contain historical pins.
-  if [ "${1:-}" = "--depth" ]; then
-    git -C "$SRC/$name" fetch --depth 1 origin "$pin"
+  if ! tree_at_pin "$name" "$pin"; then
+    echo "[fetch] $name @ $pin  $url"
+    git clone "$@" "$url" "$SRC/$name"
+    # A depth-1 clone of the default branch does not contain historical pins.
+    if [ "${1:-}" = "--depth" ]; then
+      git -C "$SRC/$name" fetch --depth 1 origin "$pin"
+    fi
+    git -C "$SRC/$name" checkout --detach "$pin"
+    verify_pin "$name" "$pin"
   fi
-  git -C "$SRC/$name" checkout --detach "$pin"
-  verify_pin "$name" "$pin"
+  # Checkout order must not make committed generated files appear stale.
+  python3 - "$SRC/$name" <<'PY'
+import os
+from pathlib import Path
+import subprocess
+import sys
+root = Path(sys.argv[1])
+timestamp = int(subprocess.check_output(
+    ["git", "-C", str(root), "log", "-1", "--format=%ct"])) * 1_000_000_000
+paths = subprocess.check_output(["git", "-C", str(root), "ls-files", "-z"])
+for name in paths.split(b"\0"):
+    if name:
+        path = root / os.fsdecode(name)
+        os.utime(path, ns=(path.lstat().st_atime_ns, timestamp), follow_symlinks=False)
+PY
 }
 
 fetch_fontconfig() {
@@ -108,6 +124,37 @@ fetch_fontconfig() {
   echo "[ok] fontconfig $version (sha256 verified)"
 }
 
+fetch_verified_file() { # fetch_verified_file <label> <url> <sha256> <destination>
+  local label=$1 url=$2 sha256=$3 destination=$4 actual
+  if [ -f "$destination" ]; then
+    actual=$(sha256sum "$destination" | cut -d' ' -f1)
+    [ "$actual" = "$sha256" ] || die "$label checksum mismatch: expected $sha256, got $actual"
+    echo "[skip] $label (sha256 verified)"
+    return 0
+  fi
+  [ ! -e "$destination" ] || die "$destination is not a regular file"
+  echo "[fetch] $label  $url"
+  curl -fSL --speed-limit 2048 --speed-time 45 -o "$TMP/download" "$url"
+  echo "$sha256  $TMP/download" | sha256sum -c -
+  mkdir -p "$(dirname "$destination")"
+  mv "$TMP/download" "$destination"
+  echo "[ok] $label (sha256 verified)"
+}
+
+fetch_engine_v1() {
+  local destination=$SRC/engine-v1/pdftocairo.js sha256 bytes
+  read -r sha256 bytes < <(python3 - "$LOCK" <<'PYCODE'
+import json, sys
+asset = json.load(open(sys.argv[1]))['engineV1Assets']['pdftocairo.js']
+print(asset['sha256'], asset['bytes'])
+PYCODE
+  )
+  fetch_verified_file "engine-v1/pdftocairo.js" \
+    "https://github.com/WeMingT/texkit-swiftlatex/releases/download/engine-v1/pdftocairo.js" \
+    "$sha256" "$destination"
+  [ "$(wc -c < "$destination")" -eq "$bytes" ] || die "engine-v1/pdftocairo.js byte count mismatch"
+}
+
 mkdir -p "$SRC"
 
 fetch_git swiftlatex https://github.com/SwiftLaTeX/SwiftLaTeX.git \
@@ -122,4 +169,12 @@ fetch_git pixman https://gitlab.freedesktop.org/pixman/pixman.git \
   "$(pin pixmanCommit)" --depth 1
 fetch_fontconfig
 
+fetch_engine_v1
+python3 "$ROOT/scripts/tex-sources.py" fetch
+[[ "${EM_CACHE:-}" == "$ROOT/build/em-cache" && "$EM_CACHE" == /* ]] || die "EM_CACHE must be the absolute checkout cache"
+printf 'port prefetch EM_CACHE=%s\n' "$EM_CACHE"
+# Initialize a fresh sysroot before ports write their pkg-config files.
+printf '' | emcc -x c -c - -o "$TMP/cache-bootstrap.o"
+embuilder build zlib libpng
+[ -n "$(ls -A "$EM_CACHE")" ] || die "port cache is empty"
 echo "ALL SOURCES READY"

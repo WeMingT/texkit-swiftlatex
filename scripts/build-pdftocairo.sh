@@ -6,6 +6,7 @@
 #
 # Stages (each idempotent, skipped when its stamp exists):
 #   gperf      GNU gperf into ~/.local (fontconfig meson needs it)
+#   ports      emscripten zlib/libpng/libjpeg ports (a fresh emsdk cache has none)
 #   freetype   meson  -> build/prefix
 #   pixman     meson  -> build/prefix
 #   fontconfig meson (expat 2.2.6 subproject) -> build/prefix
@@ -14,6 +15,8 @@
 #   link       final emcc link -> build/out/pdftocairo.js + .wasm
 #   strip      wasm-opt --strip-debug --strip-producers + single-file re-embed
 #              -> build/out/pdftocairo.stripped.js
+#
+# Needs meson, cmake, ninja, pkg-config, make and a native C compiler on PATH.
 #
 # Usage: build-pdftocairo.sh [stage ...]   (no args = all stages)
 set -euo pipefail
@@ -62,6 +65,9 @@ cpu = 'wasm32'
 endian = 'little'
 EOF
 
+# GNU gperf 3.1 source tarball (sha256 of gperf-3.1.tar.gz from ftp.gnu.org).
+GPERF_SHA256=588546b945bba4b70b6a3a616e80b4ab466e3f33024a352fc2198112cdbb3ae2
+
 stamp() { [ -f "$STAMPS/$1" ]; }
 done_stamp() { touch "$STAMPS/$1"; }
 
@@ -69,12 +75,21 @@ stage_gperf() {
   # GNU gperf 3.1 into ~/.local (fontconfig meson needs the real thing; the
   # pip package of the same name is a Python dud).
   command -v gperf >/dev/null && { echo "[skip] gperf"; return; }
-  local T=/tmp/gperf-3.1
-  rm -rf "$T" /tmp/gperf-3.1.tar.gz
-  curl -fSL --speed-limit 2048 --speed-time 45 -o /tmp/gperf-3.1.tar.gz \
+  local T
+  T=$(mktemp -d "${TMPDIR:-/tmp}/gperf.XXXXXX")
+  curl -fSL --speed-limit 2048 --speed-time 45 -o "$T/gperf-3.1.tar.gz" \
     https://ftp.gnu.org/gnu/gperf/gperf-3.1.tar.gz
-  tar -C /tmp -xzf /tmp/gperf-3.1.tar.gz
-  (cd "$T" && ./configure --prefix="$HOME/.local" && make -j"$(nproc)" && make install)
+  echo "$GPERF_SHA256  $T/gperf-3.1.tar.gz" | sha256sum -c -
+  tar -C "$T" -xzf "$T/gperf-3.1.tar.gz"
+  (cd "$T/gperf-3.1" && ./configure --prefix="$HOME/.local" && make -j"$(nproc)" && make install)
+  rm -rf "$T"
+}
+
+stage_ports() {
+  # The cairo libpng shim and the poppler/link stages read the sysroot
+  # archives directly, so nothing else asks emscripten to build the ports.
+  # embuilder is idempotent: it returns at once when they are cached.
+  embuilder build zlib libpng libjpeg
 }
 
 stage_freetype() {
@@ -181,6 +196,9 @@ stage_poppler() {
   stamp poppler && { echo "[skip] poppler"; return; }
   local B=$BUILD/poppler
   rm -rf "$B"
+  # FindFontconfig reads Fontconfig_LIBRARY / Fontconfig_INCLUDE_DIR. Cache
+  # names are case-sensitive, so an upper-case spelling is silently ignored
+  # and the lookup falls through to whatever build/prefix happens to hold.
   emcmake cmake -S "$SRC/poppler" -B "$B" \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX="$PREFIX" \
@@ -208,8 +226,8 @@ stage_poppler() {
     -DPNG_PNG_INCLUDE_DIR="$SYSROOT/include" \
     -DFREETYPE_LIBRARY="$PREFIX/lib/libfreetype.a" \
     -DFREETYPE_INCLUDE_DIRS="$PREFIX/include/freetype2" \
-    -DFONTCONFIG_LIBRARY="$FCSTAGE/usr/lib/libfontconfig.a" \
-    -DFONTCONFIG_INCLUDE_DIRS="$FCSTAGE/usr/include" \
+    -DFontconfig_LIBRARY="$FCSTAGE/usr/lib/libfontconfig.a" \
+    -DFontconfig_INCLUDE_DIR="$FCSTAGE/usr/include" \
     -DPOPPLER_DATADIR=/usr/share/poppler
   # CMake's own link of the pdftocairo executable fails (its link line omits
   # pixman, a cairo private dep) — that's fine: we relink manually in the
@@ -284,7 +302,7 @@ stage_strip() {
   done_stamp strip
 }
 
-if [ $# -gt 0 ]; then stages=("$@"); else stages=(gperf freetype pixman fontconfig cairo poppler link strip); fi
+if [ $# -gt 0 ]; then stages=("$@"); else stages=(gperf ports freetype pixman fontconfig cairo poppler link strip); fi
 for s in "${stages[@]}"; do
   "stage_$s"
 done

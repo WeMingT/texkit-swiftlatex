@@ -1,0 +1,421 @@
+{
+  "fixtures": {
+    "16-chemfig": {
+      "expectation": {
+        "expect": "success",
+        "allowRerunWarnings": [
+          {
+            "pattern": "^LaTeX Warning: Label\\(s\\) may have changed\\. Rerun to get cross-references right\\.$",
+            "reason": "The isolated chemfig molecule enables remember picture and writes a PGF position marker. It has no cross-picture position consumer or user reference; the complete frozen TeX Live emits this same generic notice in one pass."
+          }
+        ]
+      },
+      "reasons": []
+    },
+    "pazo-euro": {
+      "expectation": {
+        "expect": "success"
+      },
+      "reasons": [
+        "font-substitution",
+        "missing-character",
+        "page-count",
+        "svg-pageset",
+        "svg-size"
+      ]
+    },
+    "pazo-bb": {
+      "expectation": {
+        "expect": "success",
+        "fonts": {
+          "require": [
+            "^PazoMathBlackboardBold$"
+          ]
+        }
+      },
+      "reasons": [
+        "font-required-missing",
+        "font-substitution"
+      ]
+    },
+    "multipage": {
+      "expectation": {
+        "expect": "success"
+      },
+      "reasons": [
+        "page-count",
+        "svg-pageset"
+      ]
+    },
+    "multipass-ref": {
+      "expectation": {
+        "expect": "success"
+      },
+      "reasons": [
+        "rerun-requested",
+        "unresolved-reference"
+      ]
+    },
+    "plot-legend-ref": {
+      "expectation": {
+        "expect": "success"
+      },
+      "reasons": [
+        "rerun-requested",
+        "unresolved-reference"
+      ]
+    },
+    "clickable": {
+      "expectation": {
+        "expect": "success"
+      },
+      "reasons": [
+        "empty-pdf",
+        "exit-code",
+        "page-count",
+        "svg-parse"
+      ]
+    },
+    "derived-svg-truncated": {
+      "expectation": {
+        "expect": "success",
+        "allowRerunWarnings": [
+          {
+            "pattern": "^LaTeX Warning: Label\\(s\\) may have changed\\. Rerun to get cross-references right\\.$",
+            "reason": "The isolated chemfig molecule enables remember picture and writes a PGF position marker. It has no cross-picture position consumer or user reference; the complete frozen TeX Live emits this same generic notice in one pass."
+          }
+        ]
+      },
+      "reasons": [
+        "svg-parse"
+      ]
+    },
+    "derived-byte-count": {
+      "expectation": {
+        "expect": "success",
+        "allowRerunWarnings": [
+          {
+            "pattern": "^LaTeX Warning: Label\\(s\\) may have changed\\. Rerun to get cross-references right\\.$",
+            "reason": "The isolated chemfig molecule enables remember picture and writes a PGF position marker. It has no cross-picture position consumer or user reference; the complete frozen TeX Live emits this same generic notice in one pass."
+          }
+        ]
+      },
+      "reasons": [
+        "byte-count"
+      ]
+    },
+    "derived-empty-pdf": {
+      "expectation": {
+        "expect": "success",
+        "allowRerunWarnings": [
+          {
+            "pattern": "^LaTeX Warning: Label\\(s\\) may have changed\\. Rerun to get cross-references right\\.$",
+            "reason": "The isolated chemfig molecule enables remember picture and writes a PGF position marker. It has no cross-picture position consumer or user reference; the complete frozen TeX Live emits this same generic notice in one pass."
+          }
+        ]
+      },
+      "reasons": [
+        "byte-count",
+        "empty-pdf"
+      ]
+    },
+    "derived-exit-code": {
+      "expectation": {
+        "expect": "success",
+        "allowRerunWarnings": [
+          {
+            "pattern": "^LaTeX Warning: Label\\(s\\) may have changed\\. Rerun to get cross-references right\\.$",
+            "reason": "The isolated chemfig molecule enables remember picture and writes a PGF position marker. It has no cross-picture position consumer or user reference; the complete frozen TeX Live emits this same generic notice in one pass."
+          }
+        ]
+      },
+      "reasons": [
+        "exit-code"
+      ]
+    },
+    "derived-forbidden-font": {
+      "expectation": {
+        "expect": "success",
+        "allowRerunWarnings": [
+          {
+            "pattern": "^LaTeX Warning: Label\\(s\\) may have changed\\. Rerun to get cross-references right\\.$",
+            "reason": "The isolated chemfig molecule enables remember picture and writes a PGF position marker. It has no cross-picture position consumer or user reference; the complete frozen TeX Live emits this same generic notice in one pass."
+          }
+        ],
+        "fonts": {
+          "forbid": [
+            "^CM"
+          ]
+        }
+      },
+      "reasons": [
+        "font-forbidden-present"
+      ]
+    },
+    "derived-rerun-requested": {
+      "expectation": {
+        "expect": "success"
+      },
+      "reasons": [
+        "rerun-requested"
+      ]
+    },
+    "derived-undefined-reference-with-allowance": {
+      "expectation": {
+        "expect": "success",
+        "allowRerunWarnings": [
+          {
+            "pattern": "^LaTeX Warning: Label\\(s\\) may have changed\\. Rerun to get cross-references right\\.$",
+            "reason": "The isolated chemfig molecule enables remember picture and writes a PGF position marker. It has no cross-picture position consumer or user reference; the complete frozen TeX Live emits this same generic notice in one pass."
+          }
+        ]
+      },
+      "reasons": [
+        "unresolved-reference"
+      ]
+    },
+    "derived-no-output-record": {
+      "expectation": {
+        "expect": "success",
+        "allowRerunWarnings": [
+          {
+            "pattern": "^LaTeX Warning: Label\\(s\\) may have changed\\. Rerun to get cross-references right\\.$",
+            "reason": "The isolated chemfig molecule enables remember picture and writes a PGF position marker. It has no cross-picture position consumer or user reference; the complete frozen TeX Live emits this same generic notice in one pass."
+          }
+        ]
+      },
+      "reasons": [
+        "page-count"
+      ]
+    }
+  },
+  "verdictCases": {
+    "valid-chemfig": {
+      "fixture": "16-chemfig",
+      "expectation": {
+        "expect": "success",
+        "allowRerunWarnings": [
+          {
+            "pattern": "^LaTeX Warning: Label\\(s\\) may have changed\\. Rerun to get cross-references right\\.$",
+            "reason": "The isolated chemfig molecule enables remember picture and writes a PGF position marker. It has no cross-picture position consumer or user reference; the complete frozen TeX Live emits this same generic notice in one pass."
+          }
+        ]
+      },
+      "pass": true
+    },
+    "empty-limitation": {
+      "fixture": "16-chemfig",
+      "expectation": {
+        "expect": "limitation",
+        "reasons": []
+      },
+      "pass": false
+    },
+    "multipass-ref-success": {
+      "fixture": "multipass-ref",
+      "expectation": {
+        "expect": "success"
+      },
+      "pass": false
+    },
+    "multipass-ref-limitation": {
+      "fixture": "multipass-ref",
+      "expectation": {
+        "expect": "limitation",
+        "reasons": [
+          "rerun-requested",
+          "unresolved-reference"
+        ]
+      },
+      "pass": true
+    },
+    "multipass-ref-missing-reason": {
+      "fixture": "multipass-ref",
+      "expectation": {
+        "expect": "limitation",
+        "reasons": [
+          "rerun-requested"
+        ]
+      },
+      "pass": false
+    },
+    "multipass-ref-extra-reason": {
+      "fixture": "multipass-ref",
+      "expectation": {
+        "expect": "limitation",
+        "reasons": [
+          "rerun-requested",
+          "unresolved-reference",
+          "font-forbidden-present"
+        ]
+      },
+      "pass": false
+    },
+    "plot-legend-ref-success": {
+      "fixture": "plot-legend-ref",
+      "expectation": {
+        "expect": "success"
+      },
+      "pass": false
+    },
+    "plot-legend-ref-limitation": {
+      "fixture": "plot-legend-ref",
+      "expectation": {
+        "expect": "limitation",
+        "reasons": [
+          "rerun-requested",
+          "unresolved-reference"
+        ]
+      },
+      "pass": true
+    },
+    "plot-legend-ref-missing-reason": {
+      "fixture": "plot-legend-ref",
+      "expectation": {
+        "expect": "limitation",
+        "reasons": [
+          "rerun-requested"
+        ]
+      },
+      "pass": false
+    },
+    "plot-legend-ref-extra-reason": {
+      "fixture": "plot-legend-ref",
+      "expectation": {
+        "expect": "limitation",
+        "reasons": [
+          "rerun-requested",
+          "unresolved-reference",
+          "font-forbidden-present"
+        ]
+      },
+      "pass": false
+    },
+    "multipage-success": {
+      "fixture": "multipage",
+      "expectation": {
+        "expect": "success"
+      },
+      "pass": false
+    },
+    "multipage-limitation": {
+      "fixture": "multipage",
+      "expectation": {
+        "expect": "limitation",
+        "reasons": [
+          "page-count",
+          "svg-pageset"
+        ]
+      },
+      "pass": true
+    },
+    "multipage-missing-reason": {
+      "fixture": "multipage",
+      "expectation": {
+        "expect": "limitation",
+        "reasons": [
+          "page-count"
+        ]
+      },
+      "pass": false
+    },
+    "multipage-extra-reason": {
+      "fixture": "multipage",
+      "expectation": {
+        "expect": "limitation",
+        "reasons": [
+          "page-count",
+          "svg-pageset",
+          "font-forbidden-present"
+        ]
+      },
+      "pass": false
+    },
+    "pazo-euro-success": {
+      "fixture": "pazo-euro",
+      "expectation": {
+        "expect": "success"
+      },
+      "pass": false
+    },
+    "clickable-success": {
+      "fixture": "clickable",
+      "expectation": {
+        "expect": "success"
+      },
+      "pass": false
+    },
+    "clickable-failure": {
+      "fixture": "clickable",
+      "expectation": {
+        "expect": "failure",
+        "logPattern": "File `insdljs\\.sty' not found"
+      },
+      "pass": true
+    },
+    "clickable-wrong-pattern": {
+      "fixture": "clickable",
+      "expectation": {
+        "expect": "failure",
+        "logPattern": "THIS_CANNOT_MATCH"
+      },
+      "pass": false
+    },
+    "clickable-as-limitation": {
+      "fixture": "clickable",
+      "expectation": {
+        "expect": "limitation",
+        "reasons": [
+          "empty-pdf",
+          "exit-code",
+          "page-count",
+          "svg-parse"
+        ]
+      },
+      "pass": false
+    },
+    "derived-empty-pdf-as-limitation": {
+      "fixture": "derived-empty-pdf",
+      "expectation": {
+        "expect": "limitation",
+        "allowRerunWarnings": [
+          {
+            "pattern": "^LaTeX Warning: Label\\(s\\) may have changed\\. Rerun to get cross-references right\\.$",
+            "reason": "The isolated chemfig molecule enables remember picture and writes a PGF position marker. It has no cross-picture position consumer or user reference; the complete frozen TeX Live emits this same generic notice in one pass."
+          }
+        ],
+        "reasons": [
+          "byte-count",
+          "empty-pdf"
+        ]
+      },
+      "pass": false
+    },
+    "derived-no-output-record-as-limitation": {
+      "fixture": "derived-no-output-record",
+      "expectation": {
+        "expect": "limitation",
+        "allowRerunWarnings": [
+          {
+            "pattern": "^LaTeX Warning: Label\\(s\\) may have changed\\. Rerun to get cross-references right\\.$",
+            "reason": "The isolated chemfig molecule enables remember picture and writes a PGF position marker. It has no cross-picture position consumer or user reference; the complete frozen TeX Live emits this same generic notice in one pass."
+          }
+        ],
+        "reasons": [
+          "page-count"
+        ]
+      },
+      "pass": false
+    },
+    "unknown-reason": {
+      "fixture": "multipage",
+      "expectation": {
+        "expect": "limitation",
+        "reasons": [
+          "unknown"
+        ]
+      },
+      "pass": false
+    }
+  }
+}

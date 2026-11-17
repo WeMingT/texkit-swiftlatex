@@ -1,69 +1,24 @@
 #!/usr/bin/env bash
-# Build the SwiftLaTeX pdfTeX worker (swiftlatexpdftex) from the pinned
-# upstream clone in src/swiftlatex (pin: toolchain.lock.json swiftlatexCommit;
-# fresh clone: run scripts/fetch-sources.sh to materialize it at the pin).
-#
-# Stages (idempotent — re-run with no args to redo everything cheaply):
-#   patch  apply patches/ to src/swiftlatex (no-op when already applied)
-#   xpdf   compile the xpdf C++ tree          -> build/worker/xpdf.a
-#   objs   compile the pdfTeX engine sources   -> build/worker/objs/
-#   link   two single-file links from the same object set:
-#            build/swiftlatexpdftex.worker.js       ENVIRONMENT=web,worker
-#            build/swiftlatexpdftex.node.worker.js  ENVIRONMENT=web,worker,node
-#          (the node twin exists only so smoke tests can drive the exact same
-#           wasm in-process; the ship artifact carries the spec flags)
-#
-# Upstream base: SwiftLaTeX commit 87dfb95, pdftex.wasm/Makefile +
-# pdftex.wasm/xpdf/Makefile (CI emcc 3.1.46). The engine C/C++ flags and the
-# link flags are taken from those Makefiles; the deltas vs upstream are:
-#
-# COMPILE-side (engine sources pdftex.wasm/{tex,main.c,...,pdftexdir}):
-#   upstream-verbatim — pdftex.wasm/Makefile CFLAGS, no additions.
-#
-# COMPILE-side (xpdf C++ tree): upstream compiles it with bare -O3 only
-#   (xpdf/Makefile: CFLAGS = DEBUGFLAGS = -O3). This build routes the xpdf
-#   TUs through the SAME COMMON_CFLAGS as the engine, i.e. it ADDS
-#   -sUSE_ZLIB=1 -sUSE_LIBPNG=1 -fno-rtti -fno-exceptions
-#   -DWEBASSEMBLY_BUILD (plus the two -Wno warnings) to those 50 TUs.
-#   Deliberate: one flag set for the whole object family, and these are the
-#   flags the smoke-verified byte-identical artifact was built with.
-#
-# LINK-side:
-#   - ASYNCIFY=1             (kpse file supply is host-mediated via postMessage
-#                             and must suspend the engine — matches the
-#                             vendored baseline worker)
-#   - ASYNCIFY_STACK_SIZE=16384 (the emcc default 4096 records too little
-#                             call-stack state for the initex/compileformat
-#                             path — deep into latex.ltx the asyncify buffer
-#                             assertion (binaryen emits `unreachable` when
-#                             buffer_start > buffer_end) fires and aborts the
-#                             engine. The vendored baseline worker carries
-#                             StackSize:16384 in its runtime; 16384 matches it.
-#                             compilelatex never reaches that depth, which is
-#                             why the earlier smoke could not see this.)
-#   - SINGLE_FILE=1          (self-contained worker JS, vendored shape:
-#                             wasm embedded in the JS payload, no side-car
-#                             .wasm — emcc 6 embeds it as a raw binary string
-#                             via binaryDecode rather than the vendored
-#                             build's base64)
-#   - EXPORTED_RUNTIME_METHODS adds ccall (pre.js drives compiles through
-#                             async ccall); EXPORTED_FUNCTIONS adds _malloc /
-#                             _free (used by pre.js _allocate)
-#   - NO_EXIT_RUNTIME dropped (removed in modern emcc; EXIT_RUNTIME=0 is the
-#                             default and keeps the runtime alive after main)
-#
-# Usage: build-worker.sh [stage ...]   (no args = all stages)
+# Build the single-file release worker with synchronous preinstalled input.
+# Sources and patch are pinned by toolchain.lock.json. All compilation runs
+# in the fixed toolchain container; generated objects remain under build/.
 set -euo pipefail
 
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
 SRC=$ROOT/src/swiftlatex
 ENGINE=$SRC/pdftex.wasm
-BUILD=$ROOT/build
+BUILD=$ROOT/build/engine-v2
 WORK=$BUILD/worker
 OBJS=$WORK/objs
 PATCH=$ROOT/patches/0001-pdftex-harness-kpse-protocol.patch
 
-source ~/emsdk/emsdk_env.sh >/dev/null 2>&1
+emcc --version | head -1 | grep -F '6.0.8' >/dev/null || {
+  echo "expected Emscripten 6.0.8" >&2; exit 1;
+}
+printf 'build EM_CACHE=%s\n' "${EM_CACHE:-}"
+[[ "${EM_CACHE:-}" == "$ROOT/build/em-cache" ]] || {
+  echo "expected the absolute checkout port cache" >&2; exit 1;
+}
 
 mkdir -p "$OBJS" "$WORK"
 
@@ -188,12 +143,13 @@ collect_objs() {
 # link_worker <output> <environment-value>
 link_worker() {
   local out=$1 env=$2
+  local extra=()
+  if [[ "$env" == "web,worker,node" ]]; then extra=(--pre-js "$ROOT/worker/pdftex-node-pre.js"); fi
   (cd "$ENGINE" && em++ -o "$out" "${ALL_OBJS[@]}" "$WORK/xpdf.a" \
-    --js-library library.js --pre-js pre.js \
+    --js-library "$ROOT/worker/pdftex-library.js" --pre-js "$ROOT/worker/pdftex-pre.js" "${extra[@]}" \
     -O3 -sUSE_ZLIB=1 -sUSE_LIBPNG=1 \
     -Wno-parentheses-equality -Wno-pointer-sign -fno-rtti -fno-exceptions \
     -DWEBASSEMBLY_BUILD \
-    -sASYNCIFY=1 -sASYNCIFY_STACK_SIZE=16384 \
     -sENVIRONMENT="$env" \
     -sEXPORTED_FUNCTIONS='["_compileBibtex","_compileLaTeX","_compileFormat","_setMainEntry","_main","_malloc","_free"]' \
     -sEXPORTED_RUNTIME_METHODS=["ccall","cwrap"] \

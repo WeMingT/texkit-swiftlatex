@@ -14,6 +14,7 @@ import os
 import pathlib
 import sys
 import tarfile
+from font_whitelist import read_entries, selected_files
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 FONT_WHITELIST = pathlib.Path(os.environ.get(
@@ -25,15 +26,7 @@ TAR = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "build" / "texf
 
 
 def whitelist_dirs():
-    dirs = []
-    for line in FONT_WHITELIST.read_text(encoding="utf-8").splitlines():
-        entry = line.split("#", 1)[0].strip()
-        if entry:
-            dirs.append(entry)
-    if not dirs:
-        sys.exit("font whitelist is empty — expected at least the amsfonts/cm trees")
-    dirs.sort()
-    return dirs
+    return sorted(directory for directory, _ in read_entries(FONT_WHITELIST))
 
 
 MANDATORY_TREES = {
@@ -49,12 +42,13 @@ MANDATORY_TREES = {
     "fonts/vf/adobe/palatino",
     "fonts/type1/public/fpl",
     "fonts/tfm/adobe/symbol", "fonts/type1/urw/symbol",
+    "fonts/tfm/public/lm", "fonts/type1/public/lm", "fonts/enc/dvips/lm",
 }
 
 
 def assert_structure(dirs):
-    if len(dirs) != 19:
-        sys.exit(f"whitelist structure drift: {len(dirs)} trees, expected 19")
+    if len(dirs) != 22:
+        sys.exit(f"whitelist structure drift: {len(dirs)} trees, expected 22")
     missing = MANDATORY_TREES - set(dirs)
     if missing:
         sys.exit(f"whitelist lost mandatory trees: {sorted(missing)}")
@@ -62,23 +56,30 @@ def assert_structure(dirs):
 
 def expected_files():
     expected = {}
-    for rel in whitelist_dirs():
-        directory = TEXMF_DIST / rel
-        if not directory.is_dir():
-            sys.exit(f"font whitelist directory missing in TL2025: {directory}")
-        for suffix in ("*.pfb", "*.tfm", "*.vf"):
-            for path in sorted(directory.glob(suffix)):
-                if path.name in expected:
-                    sys.exit(f"duplicate font basename {path.name!r} "
-                             f"({expected[path.name]} and {path})")
-                expected[path.name] = path
+    for entry in read_entries(FONT_WHITELIST):
+        for path in selected_files(TEXMF_DIST, entry):
+            if path.name in expected:
+                sys.exit(f"duplicate font basename {path.name!r} "
+                         f"({expected[path.name]} and {path})")
+            expected[path.name] = path
     return expected
+
+
+def assert_latin_modern_counts(expected):
+    counts = {suffix: sum(path.parent.name == "lm" and
+                         path.suffix == suffix for path in expected.values())
+              for suffix in (".tfm", ".pfb", ".enc")}
+    wanted = {".tfm": 236, ".pfb": 92, ".enc": 8}
+    if counts != wanted:
+        sys.exit(f"Latin Modern subset drift: {counts}, expected {wanted}")
+    print(f"Latin Modern subset OK: {counts}")
 
 
 def main():
     dirs = whitelist_dirs()
     assert_structure(dirs)
     expected = expected_files()
+    assert_latin_modern_counts(expected)
     if not TAR.is_file():
         sys.exit(f"closure pack missing: {TAR} — run pack-closure.sh first")
     with tarfile.open(TAR, "r:gz") as tar:
@@ -97,8 +98,9 @@ def main():
     pfb = sum(1 for n in expected if n.endswith(".pfb"))
     tfm = sum(1 for n in expected if n.endswith(".tfm"))
     vf = sum(1 for n in expected if n.endswith(".vf"))
+    enc = sum(1 for n in expected if n.endswith(".enc"))
     print(f"[fonts] whitelist gate OK: {len(expected)} files "
-          f"({pfb} pfb + {tfm} tfm + {vf} vf) all packed in {TAR}")
+          f"({pfb} pfb + {tfm} tfm + {vf} vf + {enc} enc) all packed in {TAR}")
 
 
 if __name__ == "__main__":
